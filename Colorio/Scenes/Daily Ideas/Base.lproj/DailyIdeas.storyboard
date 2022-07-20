@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="feY-2g-2n4">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Ideas-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="DailyIdeasViewController" customModule="Colorio" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="DailyIdeasView" customModule="Colorio" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9uC-1c-09N">
+                                <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                                <items>
+                                    <navigationItem title="Daily Ideas" id="vMP-M7-Mv8">
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="whE-sj-R9Q">
+                                            <connections>
+                                                <action selector="refreshButton:" destination="8bC-Xf-vdC" id="mnz-d1-92P"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="130" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="o9T-fS-oVP">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="o9T-fS-oVP" firstAttribute="top" secondItem="9uC-1c-09N" secondAttribute="bottom" id="Bkx-5m-sSE"/>
+                            <constraint firstItem="9uC-1c-09N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Czi-88-Smj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o9T-fS-oVP" secondAttribute="trailing" id="GST-gH-qqF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o9T-fS-oVP" secondAttribute="bottom" id="Vg9-zx-xao"/>
+                            <constraint firstItem="9uC-1c-09N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="feU-nF-1eP"/>
+                            <constraint firstItem="9uC-1c-09N" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fei-BS-Nar"/>
+                            <constraint firstItem="o9T-fS-oVP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="i4o-q8-Dja"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="tableView" destination="o9T-fS-oVP" id="1Gu-gm-VI4"/>
+                        </connections>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Ideas" image="lightbulb" catalog="system" id="nAg-wT-phc"/>
+                    <connections>
+                        <outlet property="dailyIdeasView" destination="8bC-Xf-vdC" id="D5T-Zj-qfa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1009" y="-48"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Zyq-sj-Nvh">
+            <objects>
+                <tabBarController id="feY-2g-2n4" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="q2x-8R-GRx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="fsa-IY-Hnc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OYw-5g-R8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="23" y="-47"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="lightbulb" catalog="system" width="113" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

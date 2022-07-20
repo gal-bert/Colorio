@@ -9,14 +9,17 @@
 /* Begin PBXBuildFile section */
 		0CAF2D3D2887FA2E0055B80C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D3C2887FA2E0055B80C /* AppDelegate.swift */; };
 		0CAF2D3F2887FA2E0055B80C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D3E2887FA2E0055B80C /* SceneDelegate.swift */; };
-		0CAF2D412887FA2E0055B80C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D402887FA2E0055B80C /* ViewController.swift */; };
-		0CAF2D442887FA2E0055B80C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CAF2D422887FA2E0055B80C /* Main.storyboard */; };
+		0CAF2D412887FA2E0055B80C /* DailyIdeasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D402887FA2E0055B80C /* DailyIdeasViewController.swift */; };
+		0CAF2D442887FA2E0055B80C /* DailyIdeas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CAF2D422887FA2E0055B80C /* DailyIdeas.storyboard */; };
 		0CAF2D472887FA2E0055B80C /* Colorio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D452887FA2E0055B80C /* Colorio.xcdatamodeld */; };
 		0CAF2D492887FA310055B80C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CAF2D482887FA310055B80C /* Assets.xcassets */; };
 		0CAF2D4C2887FA310055B80C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CAF2D4A2887FA310055B80C /* LaunchScreen.storyboard */; };
 		0CAF2D572887FA310055B80C /* ColorioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D562887FA310055B80C /* ColorioTests.swift */; };
 		0CAF2D612887FA310055B80C /* ColorioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D602887FA310055B80C /* ColorioUITests.swift */; };
 		0CAF2D632887FA310055B80C /* ColorioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D622887FA310055B80C /* ColorioUITestsLaunchTests.swift */; };
+		0CAF2D722887FB080055B80C /* DailyIdeasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D712887FB080055B80C /* DailyIdeasView.swift */; };
+		0CAF2D762887FC5C0055B80C /* PaletteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D742887FC5C0055B80C /* PaletteTableViewCell.swift */; };
+		0CAF2D772887FC5C0055B80C /* PaletteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CAF2D752887FC5C0055B80C /* PaletteTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +43,8 @@
 		0CAF2D392887FA2E0055B80C /* Colorio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Colorio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CAF2D3C2887FA2E0055B80C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CAF2D3E2887FA2E0055B80C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0CAF2D402887FA2E0055B80C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0CAF2D432887FA2E0055B80C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0CAF2D402887FA2E0055B80C /* DailyIdeasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIdeasViewController.swift; sourceTree = "<group>"; };
+		0CAF2D432887FA2E0055B80C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DailyIdeas.storyboard; sourceTree = "<group>"; };
 		0CAF2D462887FA2E0055B80C /* Colorio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Colorio.xcdatamodel; sourceTree = "<group>"; };
 		0CAF2D482887FA310055B80C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CAF2D4B2887FA310055B80C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +55,9 @@
 		0CAF2D602887FA310055B80C /* ColorioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorioUITests.swift; sourceTree = "<group>"; };
 		0CAF2D622887FA310055B80C /* ColorioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorioUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0CAF2D6F2887FA4C0055B80C /* Colorio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Colorio.entitlements; sourceTree = "<group>"; };
+		0CAF2D712887FB080055B80C /* DailyIdeasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIdeasView.swift; sourceTree = "<group>"; };
+		0CAF2D742887FC5C0055B80C /* PaletteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteTableViewCell.swift; sourceTree = "<group>"; };
+		0CAF2D752887FC5C0055B80C /* PaletteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaletteTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C83BECF288814B00064AF08 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				0CAF2D702887FAEB0055B80C /* Daily Ideas */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		0C83BED0288814CB0064AF08 /* Base Files */ = {
+			isa = PBXGroup;
+			children = (
+				0CAF2D6F2887FA4C0055B80C /* Colorio.entitlements */,
+				0CAF2D3C2887FA2E0055B80C /* AppDelegate.swift */,
+				0CAF2D3E2887FA2E0055B80C /* SceneDelegate.swift */,
+				0CAF2D482887FA310055B80C /* Assets.xcassets */,
+				0CAF2D4A2887FA310055B80C /* LaunchScreen.storyboard */,
+				0CAF2D4D2887FA310055B80C /* Info.plist */,
+				0CAF2D452887FA2E0055B80C /* Colorio.xcdatamodeld */,
+			);
+			path = "Base Files";
+			sourceTree = "<group>";
+		};
 		0CAF2D302887FA2E0055B80C = {
 			isa = PBXGroup;
 			children = (
@@ -102,15 +130,9 @@
 		0CAF2D3B2887FA2E0055B80C /* Colorio */ = {
 			isa = PBXGroup;
 			children = (
-				0CAF2D6F2887FA4C0055B80C /* Colorio.entitlements */,
-				0CAF2D3C2887FA2E0055B80C /* AppDelegate.swift */,
-				0CAF2D3E2887FA2E0055B80C /* SceneDelegate.swift */,
-				0CAF2D402887FA2E0055B80C /* ViewController.swift */,
-				0CAF2D422887FA2E0055B80C /* Main.storyboard */,
-				0CAF2D482887FA310055B80C /* Assets.xcassets */,
-				0CAF2D4A2887FA310055B80C /* LaunchScreen.storyboard */,
-				0CAF2D4D2887FA310055B80C /* Info.plist */,
-				0CAF2D452887FA2E0055B80C /* Colorio.xcdatamodeld */,
+				0C83BED0288814CB0064AF08 /* Base Files */,
+				0C83BECF288814B00064AF08 /* Scenes */,
+				0CAF2D732887FC2B0055B80C /* Reusable Components */,
 			);
 			path = Colorio;
 			sourceTree = "<group>";
@@ -130,6 +152,25 @@
 				0CAF2D622887FA310055B80C /* ColorioUITestsLaunchTests.swift */,
 			);
 			path = ColorioUITests;
+			sourceTree = "<group>";
+		};
+		0CAF2D702887FAEB0055B80C /* Daily Ideas */ = {
+			isa = PBXGroup;
+			children = (
+				0CAF2D422887FA2E0055B80C /* DailyIdeas.storyboard */,
+				0CAF2D402887FA2E0055B80C /* DailyIdeasViewController.swift */,
+				0CAF2D712887FB080055B80C /* DailyIdeasView.swift */,
+			);
+			path = "Daily Ideas";
+			sourceTree = "<group>";
+		};
+		0CAF2D732887FC2B0055B80C /* Reusable Components */ = {
+			isa = PBXGroup;
+			children = (
+				0CAF2D742887FC5C0055B80C /* PaletteTableViewCell.swift */,
+				0CAF2D752887FC5C0055B80C /* PaletteTableViewCell.xib */,
+			);
+			path = "Reusable Components";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,7 +279,8 @@
 			files = (
 				0CAF2D4C2887FA310055B80C /* LaunchScreen.storyboard in Resources */,
 				0CAF2D492887FA310055B80C /* Assets.xcassets in Resources */,
-				0CAF2D442887FA2E0055B80C /* Main.storyboard in Resources */,
+				0CAF2D442887FA2E0055B80C /* DailyIdeas.storyboard in Resources */,
+				0CAF2D772887FC5C0055B80C /* PaletteTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,8 +305,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CAF2D412887FA2E0055B80C /* ViewController.swift in Sources */,
+				0CAF2D722887FB080055B80C /* DailyIdeasView.swift in Sources */,
+				0CAF2D412887FA2E0055B80C /* DailyIdeasViewController.swift in Sources */,
 				0CAF2D3D2887FA2E0055B80C /* AppDelegate.swift in Sources */,
+				0CAF2D762887FC5C0055B80C /* PaletteTableViewCell.swift in Sources */,
 				0CAF2D3F2887FA2E0055B80C /* SceneDelegate.swift in Sources */,
 				0CAF2D472887FA2E0055B80C /* Colorio.xcdatamodeld in Sources */,
 			);
@@ -303,12 +347,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0CAF2D422887FA2E0055B80C /* Main.storyboard */ = {
+		0CAF2D422887FA2E0055B80C /* DailyIdeas.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0CAF2D432887FA2E0055B80C /* Base */,
 			);
-			name = Main.storyboard;
+			name = DailyIdeas.storyboard;
 			sourceTree = "<group>";
 		};
 		0CAF2D4A2887FA310055B80C /* LaunchScreen.storyboard */ = {
@@ -449,7 +493,7 @@
 				INFOPLIST_FILE = Colorio/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = DailyIdeas;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -480,7 +524,7 @@
 				INFOPLIST_FILE = Colorio/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = DailyIdeas;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
