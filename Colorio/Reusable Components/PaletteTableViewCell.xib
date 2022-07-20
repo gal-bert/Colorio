@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,68 +18,63 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mao-era Posters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bei-rG-JZS">
-                        <rect key="frame" x="20" y="10" width="320" height="26"/>
+                        <rect key="frame" x="20" y="10" width="320" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="fyK-TN-JDm"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Weq-kk-W3b">
-                        <rect key="frame" x="20" y="46" width="64" height="64"/>
-                        <color key="backgroundColor" systemColor="systemFillColor"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="64" id="0Dz-fW-Qr1"/>
-                            <constraint firstAttribute="width" constant="64" id="IuX-YK-OAV"/>
-                        </constraints>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWz-8G-oUh">
-                        <rect key="frame" x="84" y="46" width="64" height="64"/>
-                        <color key="backgroundColor" systemColor="systemGray2Color"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="64" id="c0e-LU-AAj"/>
-                            <constraint firstAttribute="width" constant="64" id="xms-7R-PVD"/>
-                        </constraints>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAH-jm-zAp">
-                        <rect key="frame" x="148" y="46" width="64" height="64"/>
-                        <color key="backgroundColor" systemColor="systemGray3Color"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="64" id="MRi-GM-JjL"/>
-                            <constraint firstAttribute="width" constant="64" id="gW3-Zo-Tkh"/>
-                        </constraints>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U90-Qm-v7p">
-                        <rect key="frame" x="212" y="46" width="64" height="64"/>
-                        <color key="backgroundColor" systemColor="systemGray4Color"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="64" id="AyV-vn-bD0"/>
-                            <constraint firstAttribute="width" constant="64" id="ZTu-Mx-Fhd"/>
-                        </constraints>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6On-Q6-1Mf">
-                        <rect key="frame" x="276" y="46" width="64" height="64"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="64" id="4wF-XV-Mof"/>
-                            <constraint firstAttribute="height" constant="64" id="xwH-a5-Ou9"/>
-                        </constraints>
-                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="S5l-zW-K2B">
+                        <rect key="frame" x="20" y="50" width="320" height="64"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Weq-kk-W3b">
+                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                <color key="backgroundColor" systemColor="systemFillColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="0Dz-fW-Qr1"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWz-8G-oUh">
+                                <rect key="frame" x="64" y="0.0" width="64" height="64"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="c0e-LU-AAj"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAH-jm-zAp">
+                                <rect key="frame" x="128" y="0.0" width="64" height="64"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="MRi-GM-JjL"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U90-Qm-v7p">
+                                <rect key="frame" x="192" y="0.0" width="64" height="64"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="AyV-vn-bD0"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6On-Q6-1Mf">
+                                <rect key="frame" x="256" y="0.0" width="64" height="64"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="xwH-a5-Ou9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="uAH-jm-zAp" firstAttribute="leading" secondItem="gWz-8G-oUh" secondAttribute="trailing" id="1jb-vC-sXx"/>
-                    <constraint firstItem="Weq-kk-W3b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="3sj-W2-jAP"/>
+                    <constraint firstAttribute="bottom" secondItem="S5l-zW-K2B" secondAttribute="bottom" constant="20" id="5CA-et-5aW"/>
+                    <constraint firstAttribute="trailing" secondItem="S5l-zW-K2B" secondAttribute="trailing" constant="20" id="5RL-jr-Kbh"/>
                     <constraint firstItem="Bei-rG-JZS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="6x3-gI-O7l"/>
-                    <constraint firstItem="gWz-8G-oUh" firstAttribute="top" secondItem="Weq-kk-W3b" secondAttribute="top" id="DVV-5x-uJW"/>
-                    <constraint firstItem="U90-Qm-v7p" firstAttribute="leading" secondItem="uAH-jm-zAp" secondAttribute="trailing" id="KEy-gZ-Trr"/>
-                    <constraint firstAttribute="bottom" secondItem="Weq-kk-W3b" secondAttribute="bottom" constant="20" id="QKf-eV-7h6"/>
-                    <constraint firstItem="U90-Qm-v7p" firstAttribute="top" secondItem="uAH-jm-zAp" secondAttribute="top" id="RjC-EX-Y28"/>
-                    <constraint firstAttribute="trailing" secondItem="6On-Q6-1Mf" secondAttribute="trailing" constant="20" id="Rl0-QQ-XwD"/>
                     <constraint firstAttribute="trailing" secondItem="Bei-rG-JZS" secondAttribute="trailing" constant="20" id="XUt-j0-hXY"/>
                     <constraint firstItem="Bei-rG-JZS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="aL7-1V-cOS"/>
-                    <constraint firstItem="Weq-kk-W3b" firstAttribute="top" secondItem="Bei-rG-JZS" secondAttribute="bottom" constant="10" id="bTI-ed-5Zi"/>
-                    <constraint firstItem="6On-Q6-1Mf" firstAttribute="top" secondItem="Bei-rG-JZS" secondAttribute="bottom" constant="10" id="eEm-1J-yQD"/>
-                    <constraint firstItem="6On-Q6-1Mf" firstAttribute="leading" secondItem="U90-Qm-v7p" secondAttribute="trailing" id="ikA-Q1-B5C"/>
-                    <constraint firstItem="gWz-8G-oUh" firstAttribute="leading" secondItem="Weq-kk-W3b" secondAttribute="trailing" id="rH9-cI-Lqx"/>
-                    <constraint firstItem="uAH-jm-zAp" firstAttribute="top" secondItem="gWz-8G-oUh" secondAttribute="top" id="wLX-kY-SDx"/>
+                    <constraint firstItem="S5l-zW-K2B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="g3T-ad-dlA"/>
+                    <constraint firstItem="S5l-zW-K2B" firstAttribute="top" secondItem="Bei-rG-JZS" secondAttribute="bottom" constant="20" id="gbj-xS-pKS"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C83BED32888155E0064AF08 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C83BED22888155E0064AF08 /* Palette.swift */; };
+		0C83BED62888161C0064AF08 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C83BED52888161C0064AF08 /* Constants.swift */; };
+		0C83BED82888403B0064AF08 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C83BED72888403B0064AF08 /* Network.swift */; };
 		0CAF2D3D2887FA2E0055B80C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D3C2887FA2E0055B80C /* AppDelegate.swift */; };
 		0CAF2D3F2887FA2E0055B80C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D3E2887FA2E0055B80C /* SceneDelegate.swift */; };
 		0CAF2D412887FA2E0055B80C /* DailyIdeasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D402887FA2E0055B80C /* DailyIdeasViewController.swift */; };
@@ -40,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C83BED22888155E0064AF08 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		0C83BED52888161C0064AF08 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0C83BED72888403B0064AF08 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		0CAF2D392887FA2E0055B80C /* Colorio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Colorio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CAF2D3C2887FA2E0055B80C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CAF2D3E2887FA2E0055B80C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,15 +102,30 @@
 		0C83BED0288814CB0064AF08 /* Base Files */ = {
 			isa = PBXGroup;
 			children = (
-				0CAF2D6F2887FA4C0055B80C /* Colorio.entitlements */,
 				0CAF2D3C2887FA2E0055B80C /* AppDelegate.swift */,
 				0CAF2D3E2887FA2E0055B80C /* SceneDelegate.swift */,
 				0CAF2D482887FA310055B80C /* Assets.xcassets */,
 				0CAF2D4A2887FA310055B80C /* LaunchScreen.storyboard */,
-				0CAF2D4D2887FA310055B80C /* Info.plist */,
 				0CAF2D452887FA2E0055B80C /* Colorio.xcdatamodeld */,
 			);
 			path = "Base Files";
+			sourceTree = "<group>";
+		};
+		0C83BED12888154E0064AF08 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0C83BED22888155E0064AF08 /* Palette.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0C83BED4288816090064AF08 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0C83BED52888161C0064AF08 /* Constants.swift */,
+				0C83BED72888403B0064AF08 /* Network.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		0CAF2D302887FA2E0055B80C = {
@@ -130,9 +151,13 @@
 		0CAF2D3B2887FA2E0055B80C /* Colorio */ = {
 			isa = PBXGroup;
 			children = (
+				0CAF2D6F2887FA4C0055B80C /* Colorio.entitlements */,
+				0CAF2D4D2887FA310055B80C /* Info.plist */,
 				0C83BED0288814CB0064AF08 /* Base Files */,
-				0C83BECF288814B00064AF08 /* Scenes */,
+				0C83BED4288816090064AF08 /* Helpers */,
+				0C83BED12888154E0064AF08 /* Models */,
 				0CAF2D732887FC2B0055B80C /* Reusable Components */,
+				0C83BECF288814B00064AF08 /* Scenes */,
 			);
 			path = Colorio;
 			sourceTree = "<group>";
@@ -310,7 +335,10 @@
 				0CAF2D3D2887FA2E0055B80C /* AppDelegate.swift in Sources */,
 				0CAF2D762887FC5C0055B80C /* PaletteTableViewCell.swift in Sources */,
 				0CAF2D3F2887FA2E0055B80C /* SceneDelegate.swift in Sources */,
+				0C83BED82888403B0064AF08 /* Network.swift in Sources */,
 				0CAF2D472887FA2E0055B80C /* Colorio.xcdatamodeld in Sources */,
+				0C83BED32888155E0064AF08 /* Palette.swift in Sources */,
+				0C83BED62888161C0064AF08 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +524,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = DailyIdeas;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -527,7 +555,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = DailyIdeas;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

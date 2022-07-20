@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="feY-2g-2n4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -29,10 +28,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="130" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="o9T-fS-oVP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="130" estimatedRowHeight="130" sectionHeaderHeight="10" estimatedSectionHeaderHeight="-1" sectionFooterHeight="10" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="o9T-fS-oVP">
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="1Le-7P-SgW">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -41,11 +43,15 @@
                             <constraint firstItem="9uC-1c-09N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Czi-88-Smj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o9T-fS-oVP" secondAttribute="trailing" id="GST-gH-qqF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o9T-fS-oVP" secondAttribute="bottom" id="Vg9-zx-xao"/>
+                            <constraint firstItem="1Le-7P-SgW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XDB-G0-l7j"/>
+                            <constraint firstItem="1Le-7P-SgW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="caO-Bi-NXj"/>
                             <constraint firstItem="9uC-1c-09N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="feU-nF-1eP"/>
                             <constraint firstItem="9uC-1c-09N" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fei-BS-Nar"/>
                             <constraint firstItem="o9T-fS-oVP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="i4o-q8-Dja"/>
                         </constraints>
                         <connections>
+                            <outlet property="activityIndicator" destination="1Le-7P-SgW" id="7pT-ki-LFi"/>
+                            <outlet property="refreshButtonOutlet" destination="whE-sj-R9Q" id="ncy-cV-bhd"/>
                             <outlet property="tableView" destination="o9T-fS-oVP" id="1Gu-gm-VI4"/>
                         </connections>
                     </view>
@@ -56,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1009" y="-48"/>
+            <point key="canvasLocation" x="1008.6956521739131" y="-48.214285714285715"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zyq-sj-Nvh">

@@ -15,6 +15,8 @@ protocol DailyIdeasDelegate: AnyObject {
 class DailyIdeasView: UIView {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var refreshButtonOutlet: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var delegate:DailyIdeasDelegate!
     
@@ -23,7 +25,7 @@ class DailyIdeasView: UIView {
         tableView.delegate = viewController
         tableView.dataSource = viewController
         tableView.register(UINib(nibName: "PaletteTableViewCell", bundle: nil), forCellReuseIdentifier: "paletteCell")
-        print("Setup ok")
+
     }
     
     @IBAction func refreshButton(_ sender: Any) {

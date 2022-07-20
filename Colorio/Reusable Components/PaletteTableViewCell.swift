@@ -24,7 +24,6 @@ class PaletteTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        print("TABLEVIEEWCELL")
         color1.clipsToBounds = true
         color1.layer.cornerRadius = 10
         color1.layer.maskedCorners = [topLeft, bottomLeft]
