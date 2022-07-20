@@ -179,5 +179,9 @@ extension DailyIdeasViewController: UITableViewDelegate, UITableViewDataSource {
         return 20
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }
 
