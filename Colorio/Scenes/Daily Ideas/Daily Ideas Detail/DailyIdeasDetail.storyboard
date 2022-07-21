@@ -12,12 +12,30 @@
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="DailyIdeasDetailViewController" customModule="Colorio" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="DailyIdeasDetailView" customModule="Colorio" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="10" estimatedSectionHeaderHeight="-1" sectionFooterHeight="10" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lmI-XD-N4i">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lmI-XD-N4i" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="h4y-i8-JvI"/>
+                            <constraint firstItem="lmI-XD-N4i" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="lnA-Fe-Rvd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lmI-XD-N4i" secondAttribute="trailing" id="q8D-Pw-BzI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="lmI-XD-N4i" secondAttribute="bottom" id="viL-eP-Lyp"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="tableView" destination="lmI-XD-N4i" id="8ST-7W-BUA"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="dailyIdeasDetailView" destination="5EZ-qb-Rvc" id="Mjn-Gw-8fP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

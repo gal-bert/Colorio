@@ -14,24 +14,25 @@ class DailyIdeasViewController: UIViewController {
     var paletteArr = [Palette]()
     var titleArr = [String]()
     
+    var paletteToSend:Palette?
+    
     var isFirstTime:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        tabBarController?.tabBar.items![0].title = "Ideas"
-//        tabBarController?.tabBar.items![0].image = UIImage(systemName: "lightbulb")
-//        tabBarController?.tabBar.items![1].title = "Palette"
-//        tabBarController?.tabBar.items![1].image = UIImage(systemName: "rectangle.3.group")
-        
         dailyIdeasView.setup(viewController: self)
         refreshPalette()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailIdeasSegue" {
+            let destination = segue.destination as! DailyIdeasDetailViewController
+            destination.palette = paletteToSend
+        }
     }
     
 }
@@ -139,10 +140,11 @@ extension DailyIdeasViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "paletteCell") as! PaletteTableViewCell
         
-        if indexPath.section == 0 {
-            cell.paletteName.text = titleArr[indexPath.section].replacingOccurrences(of: "_", with: " ").uppercased()
+        if paletteArr[indexPath.section].title == "Ui"  {
+            paletteArr[indexPath.section].title = "UI"
+            cell.paletteName.text = paletteArr[indexPath.section].title.replacingOccurrences(of: "_", with: " ").uppercased()
         } else {
-            cell.paletteName.text = titleArr[indexPath.section].replacingOccurrences(of: "_", with: " ").capitalized
+            cell.paletteName.text = paletteArr[indexPath.section].title.replacingOccurrences(of: "_", with: " ").capitalized
         }
         
         let rawColor = paletteArr[indexPath.section]
@@ -199,6 +201,7 @@ extension DailyIdeasViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        paletteToSend = paletteArr[indexPath.section]
         performSegue(withIdentifier: "toDetailIdeasSegue", sender: self)
     }
     
