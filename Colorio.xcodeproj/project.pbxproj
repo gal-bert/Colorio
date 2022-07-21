@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C53FDF02889429C000E03D1 /* PaletteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53FDEF2889429C000E03D1 /* PaletteCollectionViewController.swift */; };
+		0C53FDF22889458E000E03D1 /* PaletteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53FDF12889458E000E03D1 /* PaletteCollectionView.swift */; };
+		0C53FDF428894BC8000E03D1 /* DailyIdeasDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53FDF328894BC8000E03D1 /* DailyIdeasDetailViewController.swift */; };
 		0C83BED32888155E0064AF08 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C83BED22888155E0064AF08 /* Palette.swift */; };
 		0C83BED62888161C0064AF08 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C83BED52888161C0064AF08 /* Constants.swift */; };
 		0C83BED82888403B0064AF08 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C83BED72888403B0064AF08 /* Network.swift */; };
+		0C988EA52889384B00CF06E5 /* SingleColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C988EA32889384B00CF06E5 /* SingleColorTableViewCell.swift */; };
+		0C988EA62889384B00CF06E5 /* SingleColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C988EA42889384B00CF06E5 /* SingleColorTableViewCell.xib */; };
+		0C988EA928893BEE00CF06E5 /* DailyIdeasDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C988EA828893BEE00CF06E5 /* DailyIdeasDetail.storyboard */; };
+		0C9BE0BC2889401600C6B1DA /* PaletteCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9BE0BB2889401600C6B1DA /* PaletteCollection.storyboard */; };
+		0C9BE0BE2889408B00C6B1DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9BE0BD2889408B00C6B1DA /* Main.storyboard */; };
 		0CAF2D3D2887FA2E0055B80C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D3C2887FA2E0055B80C /* AppDelegate.swift */; };
 		0CAF2D3F2887FA2E0055B80C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D3E2887FA2E0055B80C /* SceneDelegate.swift */; };
 		0CAF2D412887FA2E0055B80C /* DailyIdeasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D402887FA2E0055B80C /* DailyIdeasViewController.swift */; };
@@ -23,6 +31,7 @@
 		0CAF2D722887FB080055B80C /* DailyIdeasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D712887FB080055B80C /* DailyIdeasView.swift */; };
 		0CAF2D762887FC5C0055B80C /* PaletteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D742887FC5C0055B80C /* PaletteTableViewCell.swift */; };
 		0CAF2D772887FC5C0055B80C /* PaletteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CAF2D752887FC5C0055B80C /* PaletteTableViewCell.xib */; };
+		0CEB3ABE288920BB00EC5E7F /* Corner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEB3ABD288920BB00EC5E7F /* Corner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +52,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C53FDEF2889429C000E03D1 /* PaletteCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCollectionViewController.swift; sourceTree = "<group>"; };
+		0C53FDF12889458E000E03D1 /* PaletteCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCollectionView.swift; sourceTree = "<group>"; };
+		0C53FDF328894BC8000E03D1 /* DailyIdeasDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIdeasDetailViewController.swift; sourceTree = "<group>"; };
 		0C83BED22888155E0064AF08 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		0C83BED52888161C0064AF08 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0C83BED72888403B0064AF08 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		0C988EA32889384B00CF06E5 /* SingleColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleColorTableViewCell.swift; sourceTree = "<group>"; };
+		0C988EA42889384B00CF06E5 /* SingleColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleColorTableViewCell.xib; sourceTree = "<group>"; };
+		0C988EA828893BEE00CF06E5 /* DailyIdeasDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DailyIdeasDetail.storyboard; sourceTree = "<group>"; };
+		0C9BE0BB2889401600C6B1DA /* PaletteCollection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaletteCollection.storyboard; sourceTree = "<group>"; };
+		0C9BE0BD2889408B00C6B1DA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0CAF2D392887FA2E0055B80C /* Colorio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Colorio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CAF2D3C2887FA2E0055B80C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CAF2D3E2887FA2E0055B80C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +81,7 @@
 		0CAF2D712887FB080055B80C /* DailyIdeasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIdeasView.swift; sourceTree = "<group>"; };
 		0CAF2D742887FC5C0055B80C /* PaletteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteTableViewCell.swift; sourceTree = "<group>"; };
 		0CAF2D752887FC5C0055B80C /* PaletteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaletteTableViewCell.xib; sourceTree = "<group>"; };
+		0CEB3ABD288920BB00EC5E7F /* Corner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +112,9 @@
 		0C83BECF288814B00064AF08 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0C9BE0BA28893FF000C6B1DA /* Palette Collection */,
 				0CAF2D702887FAEB0055B80C /* Daily Ideas */,
+				0C9BE0BD2889408B00C6B1DA /* Main.storyboard */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -124,8 +144,28 @@
 			children = (
 				0C83BED52888161C0064AF08 /* Constants.swift */,
 				0C83BED72888403B0064AF08 /* Network.swift */,
+				0CEB3ABD288920BB00EC5E7F /* Corner.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0C988EA728893B5800CF06E5 /* Daily Ideas Detail */ = {
+			isa = PBXGroup;
+			children = (
+				0C988EA828893BEE00CF06E5 /* DailyIdeasDetail.storyboard */,
+				0C53FDF328894BC8000E03D1 /* DailyIdeasDetailViewController.swift */,
+			);
+			path = "Daily Ideas Detail";
+			sourceTree = "<group>";
+		};
+		0C9BE0BA28893FF000C6B1DA /* Palette Collection */ = {
+			isa = PBXGroup;
+			children = (
+				0C9BE0BB2889401600C6B1DA /* PaletteCollection.storyboard */,
+				0C53FDEF2889429C000E03D1 /* PaletteCollectionViewController.swift */,
+				0C53FDF12889458E000E03D1 /* PaletteCollectionView.swift */,
+			);
+			path = "Palette Collection";
 			sourceTree = "<group>";
 		};
 		0CAF2D302887FA2E0055B80C = {
@@ -182,6 +222,7 @@
 		0CAF2D702887FAEB0055B80C /* Daily Ideas */ = {
 			isa = PBXGroup;
 			children = (
+				0C988EA728893B5800CF06E5 /* Daily Ideas Detail */,
 				0CAF2D422887FA2E0055B80C /* DailyIdeas.storyboard */,
 				0CAF2D402887FA2E0055B80C /* DailyIdeasViewController.swift */,
 				0CAF2D712887FB080055B80C /* DailyIdeasView.swift */,
@@ -192,10 +233,28 @@
 		0CAF2D732887FC2B0055B80C /* Reusable Components */ = {
 			isa = PBXGroup;
 			children = (
+				0CEB3AC6288933FC00EC5E7F /* Single Color Cell */,
+				0CEB3AC5288933ED00EC5E7F /* Palette Cell */,
+			);
+			path = "Reusable Components";
+			sourceTree = "<group>";
+		};
+		0CEB3AC5288933ED00EC5E7F /* Palette Cell */ = {
+			isa = PBXGroup;
+			children = (
 				0CAF2D742887FC5C0055B80C /* PaletteTableViewCell.swift */,
 				0CAF2D752887FC5C0055B80C /* PaletteTableViewCell.xib */,
 			);
-			path = "Reusable Components";
+			path = "Palette Cell";
+			sourceTree = "<group>";
+		};
+		0CEB3AC6288933FC00EC5E7F /* Single Color Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0C988EA32889384B00CF06E5 /* SingleColorTableViewCell.swift */,
+				0C988EA42889384B00CF06E5 /* SingleColorTableViewCell.xib */,
+			);
+			path = "Single Color Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,9 +361,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C988EA62889384B00CF06E5 /* SingleColorTableViewCell.xib in Resources */,
+				0C9BE0BC2889401600C6B1DA /* PaletteCollection.storyboard in Resources */,
 				0CAF2D4C2887FA310055B80C /* LaunchScreen.storyboard in Resources */,
+				0C9BE0BE2889408B00C6B1DA /* Main.storyboard in Resources */,
 				0CAF2D492887FA310055B80C /* Assets.xcassets in Resources */,
 				0CAF2D442887FA2E0055B80C /* DailyIdeas.storyboard in Resources */,
+				0C988EA928893BEE00CF06E5 /* DailyIdeasDetail.storyboard in Resources */,
 				0CAF2D772887FC5C0055B80C /* PaletteTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,10 +395,15 @@
 			files = (
 				0CAF2D722887FB080055B80C /* DailyIdeasView.swift in Sources */,
 				0CAF2D412887FA2E0055B80C /* DailyIdeasViewController.swift in Sources */,
+				0C53FDF428894BC8000E03D1 /* DailyIdeasDetailViewController.swift in Sources */,
+				0CEB3ABE288920BB00EC5E7F /* Corner.swift in Sources */,
 				0CAF2D3D2887FA2E0055B80C /* AppDelegate.swift in Sources */,
 				0CAF2D762887FC5C0055B80C /* PaletteTableViewCell.swift in Sources */,
+				0C53FDF22889458E000E03D1 /* PaletteCollectionView.swift in Sources */,
 				0CAF2D3F2887FA2E0055B80C /* SceneDelegate.swift in Sources */,
+				0C53FDF02889429C000E03D1 /* PaletteCollectionViewController.swift in Sources */,
 				0C83BED82888403B0064AF08 /* Network.swift in Sources */,
+				0C988EA52889384B00CF06E5 /* SingleColorTableViewCell.swift in Sources */,
 				0CAF2D472887FA2E0055B80C /* Colorio.xcdatamodeld in Sources */,
 				0C83BED32888155E0064AF08 /* Palette.swift in Sources */,
 				0C83BED62888161C0064AF08 /* Constants.swift in Sources */,
@@ -521,7 +589,7 @@
 				INFOPLIST_FILE = Colorio/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = DailyIdeas;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
@@ -552,7 +620,7 @@
 				INFOPLIST_FILE = Colorio/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = DailyIdeas;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;

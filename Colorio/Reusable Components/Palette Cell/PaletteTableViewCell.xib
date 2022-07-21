@@ -22,7 +22,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="fyK-TN-JDm"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -84,7 +84,7 @@
                 <outlet property="color3" destination="uAH-jm-zAp" id="RlG-6E-cqa"/>
                 <outlet property="color4" destination="U90-Qm-v7p" id="MeX-Jf-d3v"/>
                 <outlet property="color5" destination="6On-Q6-1Mf" id="AW4-HW-pD8"/>
-                <outlet property="paletteTitle" destination="Bei-rG-JZS" id="DFi-BD-SMm"/>
+                <outlet property="paletteName" destination="Bei-rG-JZS" id="DFi-BD-SMm"/>
             </connections>
             <point key="canvasLocation" x="160.86956521739131" y="160.04464285714286"/>
         </tableViewCell>
