@@ -13,6 +13,8 @@ class DailyIdeasDetailViewController: UIViewController {
     
     var palette:Palette?
     var colorRGBArr = [[Int]]()
+    
+    var colorArr = [Color]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +24,9 @@ class DailyIdeasDetailViewController: UIViewController {
         colorRGBArr.append(palette!.color3)
         colorRGBArr.append(palette!.color4)
         colorRGBArr.append(palette!.color5)
-        print(colorRGBArr)
         
-        // TODO: Convert from RGB to Hex + Get name from thecolorapi
+        dailyIdeasDetailView.activityIndicator.startAnimating()
+        fetchData(index: 0)
         
     }
     
@@ -37,8 +39,48 @@ class DailyIdeasDetailViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
     }
     
-    func fetchData() -> Void {
-        // TODO: Get color data from API
+    func fetchData(index:Int) -> Void {
+        
+        guard index < 5 else { return }
+    
+        let colorRGB = colorRGBArr[index]
+        let red = colorRGB[0]
+        let green = colorRGB[1]
+        let blue = colorRGB[2]
+        
+        let colorRGBString = "(\(red),\(green),\(blue))"
+        
+        let url = URL(string: "\(Constants.THECOLORAPI_RGB_URL)\(colorRGBString)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            let json = try! JSONSerialization.jsonObject(with: data!) as! [String:Any]
+            
+            let name = json["name"] as! [String:Any]
+            let nameValue = name["value"] as! String
+            
+            let hex = json["hex"] as! [String:Any]
+            let hexValue = hex["value"] as! String
+            
+            
+            DispatchQueue.main.sync {
+                let color = Color(name: nameValue, hex: hexValue, red: red, green: green, blue: blue)
+                self.colorArr.append(color)
+                
+                if self.colorArr.count == 5 {
+                    self.dailyIdeasDetailView.activityIndicator.stopAnimating()
+                }
+
+                self.dailyIdeasDetailView.tableView.insertSections(IndexSet(integer: index), with: .fade)
+                
+            }
+            
+            self.fetchData(index: index+1)
+            
+        }.resume()
+        
     }
     
 
@@ -53,8 +95,19 @@ extension DailyIdeasDetailViewController: DailyIdeasDetailDelegate {
 
 extension DailyIdeasDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "singleColorCell") as! SingleColorTableViewCell
-        cell.colorHex.text = "\(colorRGBArr[indexPath.section])"
+        
+        let color = colorArr[indexPath.section]
+        
+        cell.colorHex.text = "\(color.hex)"
+        cell.colorName.text = "\(color.name)"
+        cell.color.backgroundColor = UIColor(
+            displayP3Red: CGFloat(color.red)/255.0,
+            green: CGFloat(color.green)/255.0,
+            blue: CGFloat(color.blue)/255.0,
+            alpha: 1.0
+        )
         return cell
     }
     
@@ -63,8 +116,7 @@ extension DailyIdeasDetailViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // TODO: Change value based on array content count
-        return 5
+        return colorArr.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

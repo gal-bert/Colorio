@@ -23,7 +23,7 @@ class PaletteCollectionView:UIView {
         delegate = viewController
         tableView.delegate = viewController
         tableView.dataSource = viewController
-        tableView.register(UINib(nibName: "SingleColorTableViewCell", bundle: nil), forCellReuseIdentifier: "singleColorCell")
+        tableView.register(UINib(nibName: "PaletteTableViewCell", bundle: nil), forCellReuseIdentifier: "paletteCell")
 
     }
     

@@ -43,12 +43,12 @@ extension DailyIdeasViewController: DailyIdeasDelegate {
         //Disable Button
         dailyIdeasView.refreshButtonOutlet.isEnabled = false
         dailyIdeasView.activityIndicator.startAnimating()
-        self.dailyIdeasView.tableView.isUserInteractionEnabled = false
         
         
         //Clear Array
         titleArr.removeAll()
         paletteArr.removeAll()
+        
         UIView.transition(
             with: dailyIdeasView.tableView,
             duration: 0.2,
@@ -61,9 +61,6 @@ extension DailyIdeasViewController: DailyIdeasDelegate {
         
         // Get Palette List
         getPaletteList() {
-//            for names in self.titleArr {
-//                self.getColorsFromEachCategory(paletteName: names)
-//            }
             self.getColorsFromEachCategory(index:0)
         }
         
@@ -87,56 +84,46 @@ extension DailyIdeasViewController: DailyIdeasDelegate {
     
     private func getColorsFromEachCategory(index:Int) -> Void {
         
-        if index < titleArr.count {
-            let paletteName = titleArr[index]
-            let url = URL(string: "\(Constants.COLORMIND_API_URL)")!
-            var request = URLRequest(url: url)
+        guard index < titleArr.count else { return }
+        
+        let paletteName = titleArr[index]
+        let url = URL(string: "\(Constants.COLORMIND_API_URL)")!
+        var request = URLRequest(url: url)
+        
+        /// GET Method cannot include httpBody, so use PUT as substitution
+        request.httpMethod = "PUT"
+        
+        request.httpBody = try! JSONSerialization.data(withJSONObject: [
+            "model": paletteName
+        ])
+        
+        var rgbCollection = [[Int]]()
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            //            Network.getNetworkResponse(data: data, response: response, error: error)
+            let json = try! JSONSerialization.jsonObject(with: data!) as! [String:Any]
+            let parent = json["result"] as! [[Int]]
             
-            /// GET Method cannot include httpBody, so use PUT as substitution
-            request.httpMethod = "PUT"
+            let finalTitle = paletteName.replacingOccurrences(of: "_", with: " ").capitalized
             
-            request.httpBody = try! JSONSerialization.data(withJSONObject: [
-                "model": paletteName
-            ])
+            rgbCollection = parent
             
-            var rgbCollection = [[Int]]()
-            
-            URLSession.shared.dataTask(with: request) { data, response, error in
-                //            Network.getNetworkResponse(data: data, response: response, error: error)
-                let json = try! JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                let parent = json["result"] as! [[Int]]
+            DispatchQueue.main.sync {
+                let palette = Palette(title: finalTitle, color1: rgbCollection[0], color2: rgbCollection[1], color3: rgbCollection[2], color4: rgbCollection[3], color5: rgbCollection[4])
+                self.paletteArr.append(palette)
                 
-                let finalTitle = paletteName.replacingOccurrences(of: "_", with: " ").capitalized
-                
-                rgbCollection = parent
-                
-                DispatchQueue.main.sync {
-                    let palette = Palette(title: finalTitle, color1: rgbCollection[0], color2: rgbCollection[1], color3: rgbCollection[2], color4: rgbCollection[3], color5: rgbCollection[4])
-                    self.paletteArr.append(palette)
-                    
-                    if self.paletteArr.count == self.titleArr.count {
-                        
-                        UIView.transition(
-                            with: self.dailyIdeasView.tableView,
-                            duration: 0.2,
-                            options: .transitionCrossDissolve,
-                            animations:
-                                { () -> Void in
-                                    self.dailyIdeasView.tableView.reloadData()
-                                }, completion: nil);
-                        
-                        self.dailyIdeasView.tableView.isUserInteractionEnabled = true
-                        self.dailyIdeasView.refreshButtonOutlet.isEnabled = true
-                        self.dailyIdeasView.activityIndicator.stopAnimating()
-                    }
-                    else {
-                        self.getColorsFromEachCategory(index: index+1)
-                    }
-                    
+                if self.paletteArr.count == self.titleArr.count {
+                    self.dailyIdeasView.refreshButtonOutlet.isEnabled = true
+                    self.dailyIdeasView.activityIndicator.stopAnimating()
                 }
                 
-            }.resume()
-        }
+                self.dailyIdeasView.tableView.insertSections(IndexSet(integer: index), with: .fade)
+                
+                self.getColorsFromEachCategory(index: index+1)
+                
+            }
+            
+        }.resume()
         
         
     }

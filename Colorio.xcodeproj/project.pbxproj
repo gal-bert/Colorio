@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C16E4962889B08F00FCA24B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C16E4952889B08F00FCA24B /* Color.swift */; };
 		0C53FDF02889429C000E03D1 /* PaletteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53FDEF2889429C000E03D1 /* PaletteCollectionViewController.swift */; };
 		0C53FDF22889458E000E03D1 /* PaletteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53FDF12889458E000E03D1 /* PaletteCollectionView.swift */; };
 		0C53FDF428894BC8000E03D1 /* DailyIdeasDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53FDF328894BC8000E03D1 /* DailyIdeasDetailViewController.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C16E4952889B08F00FCA24B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		0C53FDEF2889429C000E03D1 /* PaletteCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCollectionViewController.swift; sourceTree = "<group>"; };
 		0C53FDF12889458E000E03D1 /* PaletteCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCollectionView.swift; sourceTree = "<group>"; };
 		0C53FDF328894BC8000E03D1 /* DailyIdeasDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIdeasDetailViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				0C83BED22888155E0064AF08 /* Palette.swift */,
+				0C16E4952889B08F00FCA24B /* Color.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				0C53FDF428894BC8000E03D1 /* DailyIdeasDetailViewController.swift in Sources */,
 				0CEB3ABE288920BB00EC5E7F /* Corner.swift in Sources */,
 				0CAF2D3D2887FA2E0055B80C /* AppDelegate.swift in Sources */,
+				0C16E4962889B08F00FCA24B /* Color.swift in Sources */,
 				0CAF2D762887FC5C0055B80C /* PaletteTableViewCell.swift in Sources */,
 				0C53FDF22889458E000E03D1 /* PaletteCollectionView.swift in Sources */,
 				0CAF2D3F2887FA2E0055B80C /* SceneDelegate.swift in Sources */,

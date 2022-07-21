@@ -28,12 +28,12 @@ extension PaletteCollectionViewController: PaletteCollectionDelegate {
 
 extension PaletteCollectionViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "singleColorCell") as! SingleColorTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "paletteCell") as! PaletteTableViewCell
         
-        cell.colorName.text = "Crystal Jade"
-        cell.colorHex.text = "#FA0FFF"
-        cell.color.backgroundColor = .black
-        print("======== \(cell)")
+//        cell.colorName.text = "Crystal Jade"
+//        cell.colorHex.text = "#FA0FFF"
+//        cell.color.backgroundColor = .black
+//        print("======== \(cell)")
         return cell
     }
     

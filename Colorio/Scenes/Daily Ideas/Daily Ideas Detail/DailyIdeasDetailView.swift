@@ -15,6 +15,7 @@ class DailyIdeasDetailView: UIView {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var heartButtonOutlet: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var delegate: DailyIdeasDetailDelegate!
     

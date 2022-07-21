@@ -20,16 +20,25 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" id="svA-90-lQl">
+                                <rect key="frame" x="0.0" y="426" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="lmI-XD-N4i" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="B4i-ob-Jwb"/>
+                            <constraint firstItem="lmI-XD-N4i" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Iru-KP-fb7"/>
+                            <constraint firstItem="lmI-XD-N4i" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="KZP-Tn-Fib"/>
+                            <constraint firstItem="lmI-XD-N4i" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="Pdv-1a-K0J"/>
                             <constraint firstItem="lmI-XD-N4i" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="h4y-i8-JvI"/>
                             <constraint firstItem="lmI-XD-N4i" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="lnA-Fe-Rvd"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lmI-XD-N4i" secondAttribute="trailing" id="q8D-Pw-BzI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="lmI-XD-N4i" secondAttribute="bottom" id="viL-eP-Lyp"/>
                         </constraints>
                         <connections>
+                            <outlet property="activityIndicator" destination="svA-90-lQl" id="HOv-SU-aau"/>
                             <outlet property="heartButtonOutlet" destination="dNb-cT-eM7" id="A3A-nZ-3Ck"/>
                             <outlet property="tableView" destination="lmI-XD-N4i" id="8ST-7W-BUA"/>
                         </connections>
