@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Palette Collection View Controller-->
+        <!--Palette Collection-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="PaletteCollectionViewController" customModule="Colorio" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,32 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uy4-zO-iFJ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                                <items>
-                                    <navigationItem title="Palette Collection" id="rp8-gX-JPY">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="x5n-zG-Ak9">
-                                            <connections>
-                                                <action selector="addButton:" destination="5EZ-qb-Rvc" id="Er1-QH-N4L"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="10" estimatedSectionHeaderHeight="-1" sectionFooterHeight="10" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ArP-R0-dwO">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="uy4-zO-iFJ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="3zs-Y0-OP2"/>
+                            <constraint firstItem="ArP-R0-dwO" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="9no-UA-ZCb"/>
                             <constraint firstItem="ArP-R0-dwO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="F9h-yg-ek2"/>
-                            <constraint firstItem="uy4-zO-iFJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FkH-qk-aEs"/>
-                            <constraint firstItem="ArP-R0-dwO" firstAttribute="top" secondItem="uy4-zO-iFJ" secondAttribute="bottom" id="Itm-F3-hiz"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ArP-R0-dwO" secondAttribute="trailing" id="QUo-NI-59q"/>
-                            <constraint firstItem="uy4-zO-iFJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="d5M-cb-d75"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ArP-R0-dwO" secondAttribute="bottom" id="kRr-KR-uMw"/>
                         </constraints>
                         <connections>
@@ -49,6 +34,13 @@
                             <outlet property="tableView" destination="ArP-R0-dwO" id="6yi-W8-DK1"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="Palette Collection" id="rp8-gX-JPY">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="x5n-zG-Ak9">
+                            <connections>
+                                <action selector="addButton:" destination="5EZ-qb-Rvc" id="Er1-QH-N4L"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="paletteCollectionView" destination="5EZ-qb-Rvc" id="pCl-1F-P5n"/>
                     </connections>

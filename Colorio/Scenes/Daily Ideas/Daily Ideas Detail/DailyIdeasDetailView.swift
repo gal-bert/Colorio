@@ -8,12 +8,13 @@
 import UIKit
 
 protocol DailyIdeasDetailDelegate {
-    
+    func addToCollection()
 }
 
 class DailyIdeasDetailView: UIView {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var heartButtonOutlet: UIBarButtonItem!
     
     var delegate: DailyIdeasDetailDelegate!
     
@@ -24,6 +25,11 @@ class DailyIdeasDetailView: UIView {
         tableView.register(UINib(nibName: "SingleColorTableViewCell", bundle: nil), forCellReuseIdentifier: "singleColorCell")
         
     }
+    
+    @IBAction func heartButton(_ sender: Any) {
+        delegate.addToCollection()
+    }
+    
     
 }
 

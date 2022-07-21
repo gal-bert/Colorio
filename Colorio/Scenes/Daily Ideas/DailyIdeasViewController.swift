@@ -25,7 +25,7 @@ class DailyIdeasViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -61,9 +61,10 @@ extension DailyIdeasViewController: DailyIdeasDelegate {
         
         // Get Palette List
         getPaletteList() {
-            for names in self.titleArr {
-                self.getColorsFromEachCategory(paletteName: names)
-            }
+//            for names in self.titleArr {
+//                self.getColorsFromEachCategory(paletteName: names)
+//            }
+            self.getColorsFromEachCategory(index:0)
         }
         
     }
@@ -84,51 +85,58 @@ extension DailyIdeasViewController: DailyIdeasDelegate {
         
     }
     
-    private func getColorsFromEachCategory(paletteName:String) -> Void {
-        let url = URL(string: "\(Constants.COLORMIND_API_URL)")!
-        var request = URLRequest(url: url)
+    private func getColorsFromEachCategory(index:Int) -> Void {
         
-        /// GET Method cannot include httpBody, so use PUT as substitution
-        request.httpMethod = "PUT"
-        
-        request.httpBody = try! JSONSerialization.data(withJSONObject: [
-            "model": paletteName
-        ])
-        
-        var rgbCollection = [[Int]]()
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-//            Network.getNetworkResponse(data: data, response: response, error: error)
-            let json = try! JSONSerialization.jsonObject(with: data!) as! [String:Any]
-            let parent = json["result"] as! [[Int]]
+        if index < titleArr.count {
+            let paletteName = titleArr[index]
+            let url = URL(string: "\(Constants.COLORMIND_API_URL)")!
+            var request = URLRequest(url: url)
             
-            let finalTitle = paletteName.replacingOccurrences(of: "_", with: " ").capitalized
+            /// GET Method cannot include httpBody, so use PUT as substitution
+            request.httpMethod = "PUT"
             
-            rgbCollection = parent
+            request.httpBody = try! JSONSerialization.data(withJSONObject: [
+                "model": paletteName
+            ])
             
-            DispatchQueue.main.sync {
-                let palette = Palette(title: finalTitle, color1: rgbCollection[0], color2: rgbCollection[1], color3: rgbCollection[2], color4: rgbCollection[3], color5: rgbCollection[4])
-                self.paletteArr.append(palette)
+            var rgbCollection = [[Int]]()
+            
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                //            Network.getNetworkResponse(data: data, response: response, error: error)
+                let json = try! JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                let parent = json["result"] as! [[Int]]
                 
-                if self.paletteArr.count == self.titleArr.count {
+                let finalTitle = paletteName.replacingOccurrences(of: "_", with: " ").capitalized
+                
+                rgbCollection = parent
+                
+                DispatchQueue.main.sync {
+                    let palette = Palette(title: finalTitle, color1: rgbCollection[0], color2: rgbCollection[1], color3: rgbCollection[2], color4: rgbCollection[3], color5: rgbCollection[4])
+                    self.paletteArr.append(palette)
                     
-                    UIView.transition(
-                        with: self.dailyIdeasView.tableView,
-                        duration: 0.2,
-                        options: .transitionCrossDissolve,
-                        animations:
-                            { () -> Void in
-                                self.dailyIdeasView.tableView.reloadData()
-                            }, completion: nil);
+                    if self.paletteArr.count == self.titleArr.count {
+                        
+                        UIView.transition(
+                            with: self.dailyIdeasView.tableView,
+                            duration: 0.2,
+                            options: .transitionCrossDissolve,
+                            animations:
+                                { () -> Void in
+                                    self.dailyIdeasView.tableView.reloadData()
+                                }, completion: nil);
+                        
+                        self.dailyIdeasView.tableView.isUserInteractionEnabled = true
+                        self.dailyIdeasView.refreshButtonOutlet.isEnabled = true
+                        self.dailyIdeasView.activityIndicator.stopAnimating()
+                    }
+                    else {
+                        self.getColorsFromEachCategory(index: index+1)
+                    }
                     
-                    self.dailyIdeasView.tableView.isUserInteractionEnabled = true
-                    self.dailyIdeasView.refreshButtonOutlet.isEnabled = true
-                    self.dailyIdeasView.activityIndicator.stopAnimating()
                 }
                 
-            }
-            
-        }.resume()
+            }.resume()
+        }
         
         
     }
@@ -140,7 +148,7 @@ extension DailyIdeasViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "paletteCell") as! PaletteTableViewCell
         
-        if paletteArr[indexPath.section].title == "Ui"  {
+        if paletteArr[indexPath.section].title == "Ui" || paletteArr[indexPath.section].title == "UI"   {
             paletteArr[indexPath.section].title = "UI"
             cell.paletteName.text = paletteArr[indexPath.section].title.replacingOccurrences(of: "_", with: " ").uppercased()
         } else {

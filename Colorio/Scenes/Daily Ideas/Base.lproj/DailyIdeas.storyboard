@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Ideas-->
+        <!--Daily Ideas-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="DailyIdeasViewController" customModule="Colorio" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,20 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9uC-1c-09N">
-                                <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                                <items>
-                                    <navigationItem title="Daily Ideas" id="vMP-M7-Mv8">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="whE-sj-R9Q">
-                                            <connections>
-                                                <action selector="refreshButton:" destination="8bC-Xf-vdC" id="mnz-d1-92P"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="130" estimatedRowHeight="130" sectionHeaderHeight="10" estimatedSectionHeaderHeight="-1" sectionFooterHeight="10" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="o9T-fS-oVP">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="1Le-7P-SgW">
@@ -39,14 +27,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="o9T-fS-oVP" firstAttribute="top" secondItem="9uC-1c-09N" secondAttribute="bottom" id="Bkx-5m-sSE"/>
-                            <constraint firstItem="9uC-1c-09N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Czi-88-Smj"/>
+                            <constraint firstItem="o9T-fS-oVP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0U4-N7-TdO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o9T-fS-oVP" secondAttribute="trailing" id="GST-gH-qqF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o9T-fS-oVP" secondAttribute="bottom" id="Vg9-zx-xao"/>
                             <constraint firstItem="1Le-7P-SgW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XDB-G0-l7j"/>
                             <constraint firstItem="1Le-7P-SgW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="caO-Bi-NXj"/>
-                            <constraint firstItem="9uC-1c-09N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="feU-nF-1eP"/>
-                            <constraint firstItem="9uC-1c-09N" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fei-BS-Nar"/>
                             <constraint firstItem="o9T-fS-oVP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="i4o-q8-Dja"/>
                         </constraints>
                         <connections>
@@ -56,7 +41,13 @@
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Ideas" image="lightbulb" catalog="system" id="nAg-wT-phc"/>
-                    <navigationItem key="navigationItem" id="Ap6-tG-ew4"/>
+                    <navigationItem key="navigationItem" title="Daily Ideas" largeTitleDisplayMode="always" id="vMP-M7-Mv8">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="whE-sj-R9Q">
+                            <connections>
+                                <action selector="refreshButton:" destination="8bC-Xf-vdC" id="mnz-d1-92P"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dailyIdeasView" destination="8bC-Xf-vdC" id="D5T-Zj-qfa"/>
                         <segue destination="NRZ-KN-64X" kind="show" identifier="toDetailIdeasSegue" id="L2w-Gf-dpu"/>

@@ -23,6 +23,7 @@ class DailyIdeasDetailViewController: UIViewController {
         colorRGBArr.append(palette!.color4)
         colorRGBArr.append(palette!.color5)
         print(colorRGBArr)
+        
         // TODO: Convert from RGB to Hex + Get name from thecolorapi
         
     }
@@ -32,28 +33,22 @@ class DailyIdeasDetailViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        navigationController?.isNavigationBarHidden = false
-
         self.title = palette?.title
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"),style: .plain, target: self, action: #selector(self.buttonPressed))
-        
-    }
-    
-    @objc func buttonPressed() -> Void {
-        // TODO: Add to Core Data - Cloudkit
-        print("Clicked")
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     func fetchData() -> Void {
-        // TODO: Get color data
+        // TODO: Get color data from API
     }
     
 
 }
 
 extension DailyIdeasDetailViewController: DailyIdeasDetailDelegate {
-    
+    func addToCollection() {
+        // TODO: Add to Core Data - Cloudkit
+        print("Click to collection")
+    }
 }
 
 extension DailyIdeasDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -68,6 +63,7 @@ extension DailyIdeasDetailViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        // TODO: Change value based on array content count
         return 5
     }
     

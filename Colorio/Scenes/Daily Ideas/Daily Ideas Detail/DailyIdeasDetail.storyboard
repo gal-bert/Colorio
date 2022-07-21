@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Daily Ideas Detail View Controller-->
+        <!--Title-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="DailyIdeasDetailViewController" customModule="Colorio" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,9 +30,17 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="lmI-XD-N4i" secondAttribute="bottom" id="viL-eP-Lyp"/>
                         </constraints>
                         <connections>
+                            <outlet property="heartButtonOutlet" destination="dNb-cT-eM7" id="A3A-nZ-3Ck"/>
                             <outlet property="tableView" destination="lmI-XD-N4i" id="8ST-7W-BUA"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="kK6-gH-Ztx">
+                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="dNb-cT-eM7">
+                            <connections>
+                                <action selector="heartButton:" destination="5EZ-qb-Rvc" id="gTg-01-aIr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dailyIdeasDetailView" destination="5EZ-qb-Rvc" id="Mjn-Gw-8fP"/>
                     </connections>
@@ -43,6 +51,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

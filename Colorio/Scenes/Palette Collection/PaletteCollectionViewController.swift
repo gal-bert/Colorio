@@ -14,7 +14,6 @@ class PaletteCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
         paletteCollectionView.setup(viewController: self)
         // Do any additional setup after loading the view.
     }
@@ -23,7 +22,7 @@ class PaletteCollectionViewController: UIViewController {
 
 extension PaletteCollectionViewController: PaletteCollectionDelegate {
     func createPalette() {
-        
+        print("Clicked")
     }
 }
 
