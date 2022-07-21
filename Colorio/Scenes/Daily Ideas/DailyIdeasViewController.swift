@@ -19,10 +19,10 @@ class DailyIdeasViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBarController?.tabBar.items![0].title = "Ideas"
-        tabBarController?.tabBar.items![0].image = UIImage(systemName: "lightbulb")
-        tabBarController?.tabBar.items![1].title = "Palette"
-        tabBarController?.tabBar.items![1].image = UIImage(systemName: "rectangle.3.group")
+//        tabBarController?.tabBar.items![0].title = "Ideas"
+//        tabBarController?.tabBar.items![0].image = UIImage(systemName: "lightbulb")
+//        tabBarController?.tabBar.items![1].title = "Palette"
+//        tabBarController?.tabBar.items![1].image = UIImage(systemName: "rectangle.3.group")
         
         dailyIdeasView.setup(viewController: self)
         refreshPalette()
@@ -31,6 +31,7 @@ class DailyIdeasViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = false
     }
     
 }
