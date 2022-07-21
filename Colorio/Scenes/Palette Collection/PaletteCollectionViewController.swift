@@ -34,6 +34,7 @@ extension PaletteCollectionViewController: UITableViewDelegate, UITableViewDataS
 //        cell.colorHex.text = "#FA0FFF"
 //        cell.color.backgroundColor = .black
 //        print("======== \(cell)")
+        
         return cell
     }
     
