@@ -54,4 +54,14 @@ extension PaletteCollectionViewController: UITableViewDelegate, UITableViewDataS
 //        performSegue(withIdentifier: "toDetailIdeasSegue", sender: self)
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let action = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // TODO: Delete from core data / cloud kit
+        }
+        
+        action.backgroundColor = .systemBlue
+        
+        return [action]
+    }
+    
 }
