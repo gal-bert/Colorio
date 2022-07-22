@@ -15,7 +15,6 @@ class PaletteCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         paletteCollectionView.setup(viewController: self)
-        // Do any additional setup after loading the view.
     }
 
 }
@@ -30,10 +29,7 @@ extension PaletteCollectionViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "paletteCell") as! PaletteTableViewCell
         
-//        cell.colorName.text = "Crystal Jade"
-//        cell.colorHex.text = "#FA0FFF"
-//        cell.color.backgroundColor = .black
-//        print("======== \(cell)")
+        // TODO: Init cell data
         
         return cell
     }
@@ -43,6 +39,7 @@ extension PaletteCollectionViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        // TODO: Return count based on data from database
 //        return paletteArr.count
         return 5
     }
@@ -53,6 +50,7 @@ extension PaletteCollectionViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        // TODO: Segue to collection detail
 //        performSegue(withIdentifier: "toDetailIdeasSegue", sender: self)
     }
     

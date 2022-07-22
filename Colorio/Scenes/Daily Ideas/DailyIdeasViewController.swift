@@ -200,6 +200,16 @@ extension DailyIdeasViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "toDetailIdeasSegue", sender: self)
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let action = UITableViewRowAction(style: .normal, title: "Save") { (action, indexPath) in
+            // TODO: Save to Core Data / Cloud Kit
+        }
+        
+        action.backgroundColor = .systemBlue
+        
+        return [action]
+    }
+    
     
 }
 
