@@ -125,6 +125,8 @@ extension DailyIdeasDetailViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        UIPasteboard.general.string = colorArr[indexPath.section].hex
+        showToast(message: "Hex copied to clipboard", seconds: 1)
     }
     
     
