@@ -38,6 +38,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="x5n-zG-Ak9">
                             <connections>
                                 <action selector="addButton:" destination="5EZ-qb-Rvc" id="Er1-QH-N4L"/>
+                                <segue destination="HLC-rV-VTV" kind="show" identifier="createPaletteSegue" id="o4q-6G-qtz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -48,6 +49,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="14" y="33"/>
+        </scene>
+        <!--CreateNewPalette-->
+        <scene sceneID="jZU-eW-cFx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateNewPalette" id="HLC-rV-VTV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zrY-ez-OBa"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZG-Uu-Ce9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="736" y="33"/>
         </scene>
     </scenes>
     <resources>

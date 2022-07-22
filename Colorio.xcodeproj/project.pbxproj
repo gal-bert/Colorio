@@ -20,6 +20,9 @@
 		0C988EA928893BEE00CF06E5 /* DailyIdeasDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C988EA828893BEE00CF06E5 /* DailyIdeasDetail.storyboard */; };
 		0C9BE0BC2889401600C6B1DA /* PaletteCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9BE0BB2889401600C6B1DA /* PaletteCollection.storyboard */; };
 		0C9BE0BE2889408B00C6B1DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9BE0BD2889408B00C6B1DA /* Main.storyboard */; };
+		0C9D8E4C288AA55E0059E976 /* CreateNewPalette.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9D8E4B288AA55E0059E976 /* CreateNewPalette.storyboard */; };
+		0C9D8E4E288AA56D0059E976 /* CreateNewPaletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9D8E4D288AA56D0059E976 /* CreateNewPaletteViewController.swift */; };
+		0C9D8E50288AB2280059E976 /* CreateNewPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9D8E4F288AB2280059E976 /* CreateNewPaletteView.swift */; };
 		0CAF2D3D2887FA2E0055B80C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D3C2887FA2E0055B80C /* AppDelegate.swift */; };
 		0CAF2D3F2887FA2E0055B80C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D3E2887FA2E0055B80C /* SceneDelegate.swift */; };
 		0CAF2D412887FA2E0055B80C /* DailyIdeasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D402887FA2E0055B80C /* DailyIdeasViewController.swift */; };
@@ -67,6 +70,9 @@
 		0C988EA828893BEE00CF06E5 /* DailyIdeasDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DailyIdeasDetail.storyboard; sourceTree = "<group>"; };
 		0C9BE0BB2889401600C6B1DA /* PaletteCollection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaletteCollection.storyboard; sourceTree = "<group>"; };
 		0C9BE0BD2889408B00C6B1DA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0C9D8E4B288AA55E0059E976 /* CreateNewPalette.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateNewPalette.storyboard; sourceTree = "<group>"; };
+		0C9D8E4D288AA56D0059E976 /* CreateNewPaletteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPaletteViewController.swift; sourceTree = "<group>"; };
+		0C9D8E4F288AB2280059E976 /* CreateNewPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPaletteView.swift; sourceTree = "<group>"; };
 		0CAF2D392887FA2E0055B80C /* Colorio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Colorio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CAF2D3C2887FA2E0055B80C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CAF2D3E2887FA2E0055B80C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 		0C83BECF288814B00064AF08 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0C9D8E4A288AA5500059E976 /* Create Palette */,
 				0C9BE0BA28893FF000C6B1DA /* Palette Collection */,
 				0CAF2D702887FAEB0055B80C /* Daily Ideas */,
 				0C9BE0BD2889408B00C6B1DA /* Main.storyboard */,
@@ -172,6 +179,16 @@
 				0C53FDF12889458E000E03D1 /* PaletteCollectionView.swift */,
 			);
 			path = "Palette Collection";
+			sourceTree = "<group>";
+		};
+		0C9D8E4A288AA5500059E976 /* Create Palette */ = {
+			isa = PBXGroup;
+			children = (
+				0C9D8E4B288AA55E0059E976 /* CreateNewPalette.storyboard */,
+				0C9D8E4D288AA56D0059E976 /* CreateNewPaletteViewController.swift */,
+				0C9D8E4F288AB2280059E976 /* CreateNewPaletteView.swift */,
+			);
+			path = "Create Palette";
 			sourceTree = "<group>";
 		};
 		0CAF2D302887FA2E0055B80C = {
@@ -375,6 +392,7 @@
 				0CAF2D442887FA2E0055B80C /* DailyIdeas.storyboard in Resources */,
 				0C988EA928893BEE00CF06E5 /* DailyIdeasDetail.storyboard in Resources */,
 				0CAF2D772887FC5C0055B80C /* PaletteTableViewCell.xib in Resources */,
+				0C9D8E4C288AA55E0059E976 /* CreateNewPalette.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,8 +417,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C9D8E4E288AA56D0059E976 /* CreateNewPaletteViewController.swift in Sources */,
 				0CAF2D722887FB080055B80C /* DailyIdeasView.swift in Sources */,
 				0CAF2D412887FA2E0055B80C /* DailyIdeasViewController.swift in Sources */,
+				0C9D8E50288AB2280059E976 /* CreateNewPaletteView.swift in Sources */,
 				0C53FDF428894BC8000E03D1 /* DailyIdeasDetailViewController.swift in Sources */,
 				0CEB3ABE288920BB00EC5E7F /* Corner.swift in Sources */,
 				0CAF2D3D2887FA2E0055B80C /* AppDelegate.swift in Sources */,
