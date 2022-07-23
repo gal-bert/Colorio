@@ -12,6 +12,8 @@ class CreateNewPaletteViewController: UIViewController {
     
     @IBOutlet var createNewPaletteView: CreateNewPaletteView!
     
+    var rgbString:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createNewPaletteView.setup(viewController: self)
@@ -20,6 +22,30 @@ class CreateNewPaletteViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         title = "New Palette"
         navigationItem.largeTitleDisplayMode = .never
+    }
+    
+    func getSingleColorName(rgbString:String) -> Void {
+        
+        let url = URL(string: "\(Constants.THECOLORAPI_RGB_URL)\(rgbString)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            let json = try! JSONSerialization.jsonObject(with: data!) as! [String:Any]
+            
+            let name = json["name"] as! [String:Any]
+            let nameValue = name["value"] as! String
+            
+            let hex = json["hex"] as! [String:Any]
+            let hexValue = hex["value"] as! String
+            
+            DispatchQueue.main.sync {
+                self.createNewPaletteView.colorName.text = nameValue
+                self.createNewPaletteView.colorHexValue.text = hexValue
+            }
+        }.resume()
+        
     }
 
 }
@@ -33,18 +59,25 @@ extension CreateNewPaletteViewController: CreateNewPaletteDelegate {
 
 extension CreateNewPaletteViewController: UIColorPickerViewControllerDelegate {
     
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        getSingleColorName(rgbString: rgbString)
+        print("\n\n======\(rgbString)\n\n")
+    }
+    
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         let color = viewController.selectedColor
-        let rgbString = "RGB\(color.rgb)"
+        rgbString = "\(color.rgb)"
             .replacingOccurrences(of: "[", with: "(")
             .replacingOccurrences(of: "]", with: ")")
         
-        createNewPaletteView.colorRgbValue.text = rgbString
+        createNewPaletteView.colorRgbValue.text = "RGB\(rgbString)"
         createNewPaletteView.colorBox.backgroundColor = color
-        
-        // TODO: Fetch API and set color name and color hex (thecolorapi.com)
-        
+        // TODO: Fetch API and set color name and color hex from thecolorapi.com
+        // TODO: Get color palette from colormind.io
     }
+    
+    
+    
     
 }
 
@@ -52,6 +85,8 @@ extension CreateNewPaletteViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "singleColorCell") as! SingleColorTableViewCell
+        
+        //TODO: Configure cell items
         
 //        let color = colorArr[indexPath.section]
 //        
@@ -63,6 +98,7 @@ extension CreateNewPaletteViewController: UITableViewDelegate, UITableViewDataSo
 //            blue: CGFloat(color.blue)/255.0,
 //            alpha: 1.0
 //        )
+        
         return cell
     }
     
@@ -81,6 +117,7 @@ extension CreateNewPaletteViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        // TODO: Implement pasteboard
 //        UIPasteboard.general.string = colorArr[indexPath.section].hex
         showToast(message: "Hex copied to clipboard", seconds: 1)
     }
