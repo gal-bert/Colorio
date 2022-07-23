@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CreateNewPaletteDelegate {
-    func pushPickerViewController()
+    func pushPickerViewController(pickerVC: UIColorPickerViewController)
 }
 
 class CreateNewPaletteView: UIView {
@@ -22,8 +22,11 @@ class CreateNewPaletteView: UIView {
     @IBOutlet weak var tableView: UITableView!
     
     var delegate: CreateNewPaletteDelegate!
+    let pickerVC = UIColorPickerViewController()
     
     func setup(viewController: CreateNewPaletteViewController) {
+        pickerVC.delegate = viewController
+        
         delegate = viewController
         tableView.delegate = viewController
         tableView.dataSource = viewController
@@ -35,7 +38,7 @@ class CreateNewPaletteView: UIView {
     }
     
     @IBAction func pickerButton(_ sender: Any) {
-        delegate.pushPickerViewController()
+        delegate.pushPickerViewController(pickerVC: pickerVC)
     }
     
 }

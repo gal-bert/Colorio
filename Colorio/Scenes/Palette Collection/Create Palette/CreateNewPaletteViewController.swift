@@ -15,7 +15,6 @@ class CreateNewPaletteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createNewPaletteView.setup(viewController: self)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,9 +25,27 @@ class CreateNewPaletteViewController: UIViewController {
 }
 
 extension CreateNewPaletteViewController: CreateNewPaletteDelegate {
-    func pushPickerViewController() {
-        // TODO: Push ColorPickerVC
+    func pushPickerViewController(pickerVC: UIColorPickerViewController) {
+        present(createNewPaletteView.pickerVC, animated: true)
     }
+
+}
+
+extension CreateNewPaletteViewController: UIColorPickerViewControllerDelegate {
+    
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        let color = viewController.selectedColor
+        let rgbString = "RGB\(color.rgb)"
+            .replacingOccurrences(of: "[", with: "(")
+            .replacingOccurrences(of: "]", with: ")")
+        
+        createNewPaletteView.colorRgbValue.text = rgbString
+        createNewPaletteView.colorBox.backgroundColor = color
+        
+        // TODO: Fetch API and set color name and color hex (thecolorapi.com)
+        
+    }
+    
 }
 
 extension CreateNewPaletteViewController: UITableViewDelegate, UITableViewDataSource {
