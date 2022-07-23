@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C16E4962889B08F00FCA24B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C16E4952889B08F00FCA24B /* Color.swift */; };
 		0C2663C9288BD3A800C70D2E /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2663C8288BD3A800C70D2E /* UIColor+Ext.swift */; };
+		0C2663CB288BF34400C70D2E /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2663CA288BF34400C70D2E /* ColorPickerViewController.swift */; };
 		0C53FDF02889429C000E03D1 /* PaletteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53FDEF2889429C000E03D1 /* PaletteCollectionViewController.swift */; };
 		0C53FDF22889458E000E03D1 /* PaletteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53FDF12889458E000E03D1 /* PaletteCollectionView.swift */; };
 		0C53FDF428894BC8000E03D1 /* DailyIdeasDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53FDF328894BC8000E03D1 /* DailyIdeasDetailViewController.swift */; };
@@ -61,6 +62,7 @@
 /* Begin PBXFileReference section */
 		0C16E4952889B08F00FCA24B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		0C2663C8288BD3A800C70D2E /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		0C2663CA288BF34400C70D2E /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		0C53FDEF2889429C000E03D1 /* PaletteCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCollectionViewController.swift; sourceTree = "<group>"; };
 		0C53FDF12889458E000E03D1 /* PaletteCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCollectionView.swift; sourceTree = "<group>"; };
 		0C53FDF328894BC8000E03D1 /* DailyIdeasDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIdeasDetailViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				0C9D8E4B288AA55E0059E976 /* CreateNewPalette.storyboard */,
 				0C9D8E4D288AA56D0059E976 /* CreateNewPaletteViewController.swift */,
 				0C9D8E4F288AB2280059E976 /* CreateNewPaletteView.swift */,
+				0C2663CA288BF34400C70D2E /* ColorPickerViewController.swift */,
 			);
 			path = "Create Palette";
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				0C53FDF62889584C000E03D1 /* DailyIdeasDetailView.swift in Sources */,
 				0C988EA52889384B00CF06E5 /* SingleColorTableViewCell.swift in Sources */,
 				0CAF2D472887FA2E0055B80C /* Colorio.xcdatamodeld in Sources */,
+				0C2663CB288BF34400C70D2E /* ColorPickerViewController.swift in Sources */,
 				0C2663C9288BD3A800C70D2E /* UIColor+Ext.swift in Sources */,
 				0C83BED32888155E0064AF08 /* Palette.swift in Sources */,
 				0C83BED62888161C0064AF08 /* Constants.swift in Sources */,

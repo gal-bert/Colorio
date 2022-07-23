@@ -22,7 +22,7 @@ class CreateNewPaletteView: UIView {
     @IBOutlet weak var tableView: UITableView!
     
     var delegate: CreateNewPaletteDelegate!
-    let pickerVC = UIColorPickerViewController()
+    let pickerVC = ColorPickerViewController()
     
     func setup(viewController: CreateNewPaletteViewController) {
         pickerVC.delegate = viewController

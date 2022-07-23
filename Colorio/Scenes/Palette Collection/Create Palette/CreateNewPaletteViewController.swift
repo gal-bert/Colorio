@@ -52,6 +52,7 @@ class CreateNewPaletteViewController: UIViewController {
 
 extension CreateNewPaletteViewController: CreateNewPaletteDelegate {
     func pushPickerViewController(pickerVC: UIColorPickerViewController) {
+        createNewPaletteView.pickerVC.isModalInPresentation = true
         present(createNewPaletteView.pickerVC, animated: true)
     }
 
@@ -59,9 +60,10 @@ extension CreateNewPaletteViewController: CreateNewPaletteDelegate {
 
 extension CreateNewPaletteViewController: UIColorPickerViewControllerDelegate {
     
+    // TODO: Disable Picker VC Dismiss on swipe
+    
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
         getSingleColorName(rgbString: rgbString)
-        print("\n\n======\(rgbString)\n\n")
     }
     
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
@@ -72,11 +74,9 @@ extension CreateNewPaletteViewController: UIColorPickerViewControllerDelegate {
         
         createNewPaletteView.colorRgbValue.text = "RGB\(rgbString)"
         createNewPaletteView.colorBox.backgroundColor = color
-        // TODO: Fetch API and set color name and color hex from thecolorapi.com
+
         // TODO: Get color palette from colormind.io
     }
-    
-    
     
     
 }
