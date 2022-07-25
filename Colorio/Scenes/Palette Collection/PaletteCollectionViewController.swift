@@ -11,11 +11,11 @@ class PaletteCollectionViewController: UIViewController {
 
     @IBOutlet var paletteCollectionView: PaletteCollectionView!
     
-    #if targetEnvironment(macCatalyst)
-    var dotStyle = UIAlertController.Style.alert
-    #elseif os(iOS)
-    var dotStyle = UIAlertController.Style.actionSheet
-    #endif
+//    #if targetEnvironment(macCatalyst)
+//    var dotStyle = UIAlertController.Style.alert
+//    #elseif os(iOS)
+//    var dotStyle = UIAlertController.Style.actionSheet
+//    #endif
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,38 +26,7 @@ class PaletteCollectionViewController: UIViewController {
 
 extension PaletteCollectionViewController: PaletteCollectionDelegate {
     func createPalette() {
-    
-        let sheet = UIAlertController(
-            title: "Create New Color Palette",
-            message: "Randomize or get suggestions from a single",
-            preferredStyle: dotStyle
-        )
-        
-        sheet.addAction(UIAlertAction(
-            title: "Generate Random Palette",
-            style: .default,
-            handler: { UIAlertAction in
-                // TODO: Generate random palette
-                // TODO: Save to core data
-            }
-        ))
-        
-        sheet.addAction(UIAlertAction(
-            title: "Create From Single Color",
-            style: .default,
-            handler: { UIAlertAction in
-                self.performSegue(withIdentifier: "createPaletteSegue", sender: self)
-            }
-        ))
-        
-        sheet.addAction(UIAlertAction(
-            title: "Cancel",
-            style: .cancel,
-            handler: nil
-        ))
-        
-        present(sheet, animated: true, completion: nil)
-        
+        self.performSegue(withIdentifier: "createPaletteSegue", sender: self)
     }
 }
 

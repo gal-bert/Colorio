@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create New Palette View Controller-->
+        <!--Title-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="CreateNewPaletteViewController" customModule="Colorio" customModuleProvider="target" sceneMemberID="viewController">
@@ -143,6 +143,13 @@
                             <outlet property="tableView" destination="sjJ-do-S00" id="ige-yt-0zQ"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="NKc-Rk-0Hi">
+                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="ZZV-nF-cNP">
+                            <connections>
+                                <action selector="heartButton:" destination="5EZ-qb-Rvc" id="40g-lJ-9uO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="createNewPaletteView" destination="5EZ-qb-Rvc" id="oTU-Zt-wVJ"/>
                     </connections>
@@ -155,6 +162,7 @@
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="eyedropper" catalog="system" width="128" height="119"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -162,6 +162,10 @@ extension CreateNewPaletteViewController: CreateNewPaletteDelegate {
         emptyLoadingContent()
         getPalette()
     }
+    
+    func addToFavorite() {
+        // TODO: Add to core data / cloudkit
+    }
 
 }
 

@@ -10,6 +10,7 @@ import UIKit
 protocol CreateNewPaletteDelegate {
     func pushPickerViewController(pickerVC: UIColorPickerViewController)
     func reloadPalette()
+    func addToFavorite()
 }
 
 class CreateNewPaletteView: UIView {
@@ -48,4 +49,7 @@ class CreateNewPaletteView: UIView {
         delegate.reloadPalette()
     }
     
+    @IBAction func heartButton(_ sender: Any) {
+        delegate.addToFavorite()
+    }
 }
