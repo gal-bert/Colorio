@@ -35,7 +35,7 @@ class CreateNewPaletteViewController: UIViewController {
         createNewPaletteView.tableView.reloadData()
     }
     
-    func getSingleColorValueAndPalette(rgbString:String) -> Void {
+    func getSelectedColorInfo(rgbString:String) -> Void {
         
         emptyLoadingContent()
         
@@ -157,7 +157,7 @@ extension CreateNewPaletteViewController: UIColorPickerViewControllerDelegate, C
         
 //        createNewPaletteView.colorRgbValue.text = "RGB\(rgbString)"
         createNewPaletteView.colorBox.backgroundColor = color
-        getSingleColorValueAndPalette(rgbString: rgbString)
+        getSelectedColorInfo(rgbString: rgbString)
 
     }
     
