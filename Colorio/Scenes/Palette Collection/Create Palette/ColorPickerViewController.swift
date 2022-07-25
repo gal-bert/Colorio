@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol ColorPickerDelegate {
+    func getColorValueOnDismiss()
+}
+
 class ColorPickerViewController: UIColorPickerViewController, UIAdaptivePresentationControllerDelegate {
+    
+    var pickerDelegate: ColorPickerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +21,10 @@ class ColorPickerViewController: UIColorPickerViewController, UIAdaptivePresenta
         self.isModalInPresentation = true
         self.presentationController?.delegate = self
         
-        print("DIDLOAD COLOR PICKER")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        pickerDelegate?.getColorValueOnDismiss()
     }
     
     
@@ -23,14 +32,4 @@ class ColorPickerViewController: UIColorPickerViewController, UIAdaptivePresenta
         return false
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

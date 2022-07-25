@@ -14,6 +14,7 @@ class CreateNewPaletteViewController: UIViewController {
     
     var rgbString:String = ""
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createNewPaletteView.setup(viewController: self)
@@ -24,7 +25,7 @@ class CreateNewPaletteViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
     }
     
-    func getSingleColorName(rgbString:String) -> Void {
+    func getSingleColorValue(rgbString:String) -> Void {
         
         let url = URL(string: "\(Constants.THECOLORAPI_RGB_URL)\(rgbString)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
         var request = URLRequest(url: url!)
@@ -53,17 +54,29 @@ class CreateNewPaletteViewController: UIViewController {
 extension CreateNewPaletteViewController: CreateNewPaletteDelegate {
     func pushPickerViewController(pickerVC: UIColorPickerViewController) {
         createNewPaletteView.pickerVC.isModalInPresentation = true
+        createNewPaletteView.pickerVC.pickerDelegate = self
         present(createNewPaletteView.pickerVC, animated: true)
     }
 
 }
 
-extension CreateNewPaletteViewController: UIColorPickerViewControllerDelegate {
+extension CreateNewPaletteViewController: UIColorPickerViewControllerDelegate, ColorPickerDelegate {
     
-    // TODO: Disable Picker VC Dismiss on swipe
+    func getColorValueOnDismiss() {
+        let color = createNewPaletteView.pickerVC.selectedColor
+        
+        rgbString = "\(color.rgb)"
+            .replacingOccurrences(of: "[", with: "(")
+            .replacingOccurrences(of: "]", with: ")")
+        
+        createNewPaletteView.colorRgbValue.text = "RGB\(rgbString)"
+        createNewPaletteView.colorBox.backgroundColor = color
+        getSingleColorValue(rgbString: rgbString)
+
+    }
     
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
-        getSingleColorName(rgbString: rgbString)
+        getSingleColorValue(rgbString: rgbString)
     }
     
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
