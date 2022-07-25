@@ -9,6 +9,7 @@ import UIKit
 
 protocol CreateNewPaletteDelegate {
     func pushPickerViewController(pickerVC: UIColorPickerViewController)
+    func reloadPalette()
 }
 
 class CreateNewPaletteView: UIView {
@@ -18,7 +19,9 @@ class CreateNewPaletteView: UIView {
     @IBOutlet weak var colorName: UILabel!
     @IBOutlet weak var colorHexValue: UILabel!
     @IBOutlet weak var colorRgbValue: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var reloadPaletteButtonOutlet: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     var delegate: CreateNewPaletteDelegate!
@@ -39,6 +42,10 @@ class CreateNewPaletteView: UIView {
     
     @IBAction func pickerButton(_ sender: Any) {
         delegate.pushPickerViewController(pickerVC: pickerVC)
+    }
+    
+    @IBAction func reloadPaletteButton(_ sender: Any) {
+        delegate.reloadPalette()
     }
     
 }

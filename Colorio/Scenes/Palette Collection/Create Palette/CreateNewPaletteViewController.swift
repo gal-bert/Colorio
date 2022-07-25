@@ -20,6 +20,9 @@ class CreateNewPaletteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createNewPaletteView.setup(viewController: self)
+        globalColor = .black
+        createNewPaletteView.reloadPaletteButtonOutlet.isEnabled = false
+        getPalette()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,16 +30,22 @@ class CreateNewPaletteViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
     }
     
-    func emptyLoadingContent() -> Void {
-        colorArr.removeAll()
+    func setLoading() -> Void {
         createNewPaletteView.colorName.text = "Loading..."
         createNewPaletteView.colorHexValue.text = "Loading..."
         createNewPaletteView.colorRgbValue.text = "Loading..."
+    }
+    
+    func emptyLoadingContent() -> Void {
+        colorArr.removeAll()
         createNewPaletteView.tableView.reloadData()
+        createNewPaletteView.activityIndicator.startAnimating()
+        createNewPaletteView.reloadPaletteButtonOutlet.isEnabled = false
     }
     
     func getSelectedColorInfo(rgbString:String) -> Void {
         
+        setLoading()
         emptyLoadingContent()
         
         let url = URL(string: "\(Constants.THECOLORAPI_RGB_URL)\(rgbString)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
@@ -56,7 +65,7 @@ class CreateNewPaletteViewController: UIViewController {
             DispatchQueue.main.sync {
                 self.createNewPaletteView.colorName.text = nameValue
                 self.createNewPaletteView.colorHexValue.text = hexValue
-                self.createNewPaletteView.colorRgbValue.text = "RGB(\(rgbString))"
+                self.createNewPaletteView.colorRgbValue.text = "RGB\(rgbString)"
                 self.getPalette()
             }
             
@@ -100,7 +109,13 @@ class CreateNewPaletteViewController: UIViewController {
     
     func loadToTableView(index: Int) -> Void {
         
-        guard index < 5 else { return }
+        guard index < 5 else {
+            DispatchQueue.main.sync {
+                self.createNewPaletteView.activityIndicator.stopAnimating()
+                self.createNewPaletteView.reloadPaletteButtonOutlet.isEnabled = true
+            }
+            return
+        }
         
         var param = "\(rgbCollection[index])"
         param = param.replacingOccurrences(of: "[", with: "(").replacingOccurrences(of: "]", with: ")")
@@ -142,6 +157,11 @@ extension CreateNewPaletteViewController: CreateNewPaletteDelegate {
         createNewPaletteView.pickerVC.pickerDelegate = self
         present(createNewPaletteView.pickerVC, animated: true)
     }
+    
+    func reloadPalette() {
+        emptyLoadingContent()
+        getPalette()
+    }
 
 }
 
@@ -155,7 +175,6 @@ extension CreateNewPaletteViewController: UIColorPickerViewControllerDelegate, C
             .replacingOccurrences(of: "[", with: "(")
             .replacingOccurrences(of: "]", with: ")")
         
-//        createNewPaletteView.colorRgbValue.text = "RGB\(rgbString)"
         createNewPaletteView.colorBox.backgroundColor = color
         getSelectedColorInfo(rgbString: rgbString)
 

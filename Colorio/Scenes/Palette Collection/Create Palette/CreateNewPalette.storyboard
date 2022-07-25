@@ -84,8 +84,16 @@
                                             <constraint firstAttribute="trailing" secondItem="ugO-hD-URG" secondAttribute="trailing" constant="20" id="x5K-2e-jGm"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7d-Da-USL">
+                                        <rect key="frame" x="322" y="184.33333333333334" width="43" height="30.666666666666657"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system"/>
+                                        <connections>
+                                            <action selector="reloadPaletteButton:" destination="5EZ-qb-Rvc" eventType="touchUpInside" id="NVm-Kk-PxF"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Related Colors" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sun-jW-jG3">
-                                        <rect key="frame" x="20" y="189.66666666666666" width="335" height="20.333333333333343"/>
+                                        <rect key="frame" x="20" y="189.66666666666666" width="119" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -94,35 +102,43 @@
                                 <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="B0P-u2-uc5"/>
+                                    <constraint firstAttribute="bottom" secondItem="S7d-Da-USL" secondAttribute="bottom" constant="5" id="GS6-vA-sSF"/>
                                     <constraint firstItem="dpj-m0-yBo" firstAttribute="top" secondItem="O2I-Gq-mc1" secondAttribute="top" constant="20" id="Jch-6M-U7g"/>
                                     <constraint firstItem="dpj-m0-yBo" firstAttribute="leading" secondItem="O2I-Gq-mc1" secondAttribute="leading" constant="20" id="U3p-1E-Ut8"/>
                                     <constraint firstAttribute="bottom" secondItem="sun-jW-jG3" secondAttribute="bottom" constant="10" id="ajx-sK-RKy"/>
+                                    <constraint firstAttribute="trailing" secondItem="S7d-Da-USL" secondAttribute="trailing" constant="10" id="brp-n2-g6k"/>
                                     <constraint firstItem="sun-jW-jG3" firstAttribute="leading" secondItem="O2I-Gq-mc1" secondAttribute="leading" constant="20" id="hbq-1L-XtS"/>
                                     <constraint firstAttribute="trailing" secondItem="dpj-m0-yBo" secondAttribute="trailing" constant="20" id="pPx-GF-3ew"/>
-                                    <constraint firstAttribute="trailing" secondItem="sun-jW-jG3" secondAttribute="trailing" constant="20" id="sAu-VW-5HQ"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sjJ-do-S00">
                                 <rect key="frame" x="0.0" y="264" width="375" height="514"/>
                                 <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="d1A-0e-cyG">
+                                <rect key="frame" x="169" y="387.66666666666669" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="O2I-Gq-mc1" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="1bJ-kC-e8b"/>
                             <constraint firstItem="O2I-Gq-mc1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="1lW-bk-sXO"/>
+                            <constraint firstItem="d1A-0e-cyG" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="4hk-1a-Rzg"/>
                             <constraint firstItem="sjJ-do-S00" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="KTo-4b-8fj"/>
                             <constraint firstItem="O2I-Gq-mc1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="O5x-3l-J3v"/>
                             <constraint firstItem="sjJ-do-S00" firstAttribute="top" secondItem="O2I-Gq-mc1" secondAttribute="bottom" id="Qeb-Jc-Jie"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sjJ-do-S00" secondAttribute="trailing" id="Ybq-db-VpG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="sjJ-do-S00" secondAttribute="bottom" id="jq4-mu-R0d"/>
+                            <constraint firstItem="d1A-0e-cyG" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="zGD-6k-0EF"/>
                         </constraints>
                         <connections>
+                            <outlet property="activityIndicator" destination="d1A-0e-cyG" id="AUB-Lu-3Kf"/>
                             <outlet property="colorBox" destination="ugO-hD-URG" id="c5L-Rl-NPv"/>
                             <outlet property="colorHexValue" destination="4JR-Fh-nba" id="fr1-ni-OuA"/>
                             <outlet property="colorName" destination="Jgr-hT-kYg" id="mon-BA-yPX"/>
                             <outlet property="colorRgbValue" destination="0P4-MA-njm" id="wUb-UV-bFt"/>
+                            <outlet property="reloadPaletteButtonOutlet" destination="S7d-Da-USL" id="VC0-2N-KRb"/>
                             <outlet property="singleCard" destination="dpj-m0-yBo" id="3lS-ib-mXy"/>
                             <outlet property="tableView" destination="sjJ-do-S00" id="ige-yt-0zQ"/>
                         </connections>
@@ -137,6 +153,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="eyedropper" catalog="system" width="128" height="119"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
