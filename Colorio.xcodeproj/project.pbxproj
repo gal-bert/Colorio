@@ -14,6 +14,7 @@
 		0C53FDF22889458E000E03D1 /* PaletteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53FDF12889458E000E03D1 /* PaletteCollectionView.swift */; };
 		0C53FDF428894BC8000E03D1 /* DailyIdeasDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53FDF328894BC8000E03D1 /* DailyIdeasDetailViewController.swift */; };
 		0C53FDF62889584C000E03D1 /* DailyIdeasDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53FDF52889584C000E03D1 /* DailyIdeasDetailView.swift */; };
+		0C64CC3E288F882100226B4F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C64CC3D288F882100226B4F /* CloudKit.framework */; };
 		0C83BED32888155E0064AF08 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C83BED22888155E0064AF08 /* Palette.swift */; };
 		0C83BED62888161C0064AF08 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C83BED52888161C0064AF08 /* Constants.swift */; };
 		0C83BED82888403B0064AF08 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C83BED72888403B0064AF08 /* Network.swift */; };
@@ -67,6 +68,7 @@
 		0C53FDF12889458E000E03D1 /* PaletteCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCollectionView.swift; sourceTree = "<group>"; };
 		0C53FDF328894BC8000E03D1 /* DailyIdeasDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIdeasDetailViewController.swift; sourceTree = "<group>"; };
 		0C53FDF52889584C000E03D1 /* DailyIdeasDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIdeasDetailView.swift; sourceTree = "<group>"; };
+		0C64CC3D288F882100226B4F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		0C83BED22888155E0064AF08 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		0C83BED52888161C0064AF08 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0C83BED72888403B0064AF08 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C64CC3E288F882100226B4F /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +135,14 @@
 				0C2663C8288BD3A800C70D2E /* UIColor+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0C64CC3C288F882100226B4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C64CC3D288F882100226B4F /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		0C83BECF288814B00064AF08 /* Scenes */ = {
@@ -215,6 +226,7 @@
 				0CAF2D552887FA310055B80C /* ColorioTests */,
 				0CAF2D5F2887FA310055B80C /* ColorioUITests */,
 				0CAF2D3A2887FA2E0055B80C /* Products */,
+				0C64CC3C288F882100226B4F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -635,6 +647,7 @@
 				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Colorio/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -666,6 +679,7 @@
 				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Colorio/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

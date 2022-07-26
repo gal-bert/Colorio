@@ -17,6 +17,8 @@ class CreateNewPaletteViewController: UIViewController {
     var colorArr = [Color]()
     var rgbCollection = [[Int]]()
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createNewPaletteView.setup(viewController: self)
@@ -165,6 +167,25 @@ extension CreateNewPaletteViewController: CreateNewPaletteDelegate {
     
     func addToFavorite() {
         // TODO: Add to core data / cloudkit
+        let context = appDelegate.persistentContainer.viewContext
+        context.automaticallyMergesChangesFromParent = true
+        context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+        
+        let palettes = Palettes(context: context)
+        
+        do{
+//            palettes.paletteName = palette?.title
+//            palettes.color1 = palette!.color1 as NSObject
+//            palettes.color2 = palette!.color2 as NSObject
+//            palettes.color3 = palette!.color3 as NSObject
+//            palettes.color4 = palette!.color4 as NSObject
+//            palettes.color5 = palette!.color5 as NSObject
+            context.insert(palettes)
+            try context.save()
+            print("Save Success")
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 
 }

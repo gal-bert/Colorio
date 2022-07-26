@@ -15,6 +15,8 @@ class DailyIdeasDetailViewController: UIViewController {
     var colorRGBArr = [[Int]]()
     
     var colorArr = [Color]()
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +39,17 @@ class DailyIdeasDetailViewController: UIViewController {
     func setupNavigationBar() {
         self.title = palette?.title
         navigationItem.largeTitleDisplayMode = .never
+        dailyIdeasDetailView.heartButtonOutlet.isEnabled = false
     }
     
     func fetchData(index:Int) -> Void {
         
-        guard index < 5 else { return }
+        guard index < 5 else {
+            DispatchQueue.main.async {
+                self.dailyIdeasDetailView.heartButtonOutlet.isEnabled = true
+            }
+            return
+        }
     
         let colorRGB = colorRGBArr[index]
         let red = colorRGB[0]
@@ -71,6 +79,7 @@ class DailyIdeasDetailViewController: UIViewController {
                 
                 if self.colorArr.count == 5 {
                     self.dailyIdeasDetailView.activityIndicator.stopAnimating()
+                    
                 }
 
                 self.dailyIdeasDetailView.tableView.insertSections(IndexSet(integer: index), with: .fade)
@@ -88,8 +97,29 @@ class DailyIdeasDetailViewController: UIViewController {
 
 extension DailyIdeasDetailViewController: DailyIdeasDetailDelegate {
     func addToCollection() {
-        // TODO: Add to Core Data - Cloudkit
-        print("Click to collection")
+        
+        let context = appDelegate.persistentContainer.viewContext
+        context.automaticallyMergesChangesFromParent = true
+        context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+        
+        let palettes = Palettes(context: context)
+        
+        do{
+            palettes.paletteName = palette?.title
+            palettes.color1 = palette!.color1 as NSObject
+            palettes.color2 = palette!.color2 as NSObject
+            palettes.color3 = palette!.color3 as NSObject
+            palettes.color4 = palette!.color4 as NSObject
+            palettes.color5 = palette!.color5 as NSObject
+            context.insert(palettes)
+            try context.save()
+            print("Save Success")
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        // TODO: Add alert save success and segue to collection palette
+        
     }
 }
 
