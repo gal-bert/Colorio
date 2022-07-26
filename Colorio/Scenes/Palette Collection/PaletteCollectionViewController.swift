@@ -14,12 +14,6 @@ class PaletteCollectionViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var cloudArr = [Palettes]()
     
-//    #if targetEnvironment(macCatalyst)
-//    var dotStyle = UIAlertController.Style.alert
-//    #elseif os(iOS)
-//    var dotStyle = UIAlertController.Style.actionSheet
-//    #endif
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         paletteCollectionView.setup(viewController: self)
@@ -114,15 +108,19 @@ extension PaletteCollectionViewController: UITableViewDelegate, UITableViewDataS
 //        performSegue(withIdentifier: "toDetailIdeasSegue", sender: self)
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let action = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            // TODO: Delete from core data / cloud kit
-            // TODO: Pop from array, tableview remove rows at
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let context = self.appDelegate.persistentContainer.viewContext
+            context.automaticallyMergesChangesFromParent = true
+            context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+            
+            context.delete(self.cloudArr[indexPath.section])
+            try! context.save()
+            
+            self.cloudArr.remove(at: indexPath.section)
+            
+            self.paletteCollectionView.tableView.deleteSections(IndexSet(integer: indexPath.section), with: .left)
         }
-        
-        action.backgroundColor = .systemRed
-        
-        return [action]
     }
     
 }

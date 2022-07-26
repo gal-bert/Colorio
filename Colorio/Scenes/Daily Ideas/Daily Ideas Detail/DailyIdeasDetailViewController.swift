@@ -119,6 +119,10 @@ extension DailyIdeasDetailViewController: DailyIdeasDetailDelegate {
         }
         
         // TODO: Add alert save success and segue to collection palette
+        self.showToast(message: "Saved to collection", seconds: 1)
+        let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { Timer in
+            self.performSegue(withIdentifier: "unwindToDailyIdeas", sender: self)
+        }
         
     }
 }

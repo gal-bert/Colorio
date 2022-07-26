@@ -38,6 +38,11 @@ class DailyIdeasViewController: UIViewController {
         }
     }
     
+    @IBAction func unwindToDailyIdeas(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
+    }
+    
 }
 
 extension DailyIdeasViewController: DailyIdeasDelegate {
@@ -224,7 +229,7 @@ extension DailyIdeasViewController: UITableViewDelegate, UITableViewDataSource {
                 try context.save()
                 print("Save Success")
                 
-                // TODO: Add Alert on save success
+                self.showToast(message: "Saved to collection", seconds: 1)
                 
             } catch {
                 print(error.localizedDescription)

@@ -56,9 +56,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dailyIdeasDetailView" destination="5EZ-qb-Rvc" id="Mjn-Gw-8fP"/>
+                        <segue destination="Rw6-Fb-DGS" kind="unwind" identifier="unwindToDailyIdeas" unwindAction="unwindToDailyIdeas:" id="ZcS-yV-BpQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Rw6-Fb-DGS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="38" y="56"/>
         </scene>
