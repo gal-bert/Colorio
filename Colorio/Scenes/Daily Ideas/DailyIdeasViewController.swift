@@ -18,6 +18,9 @@ class DailyIdeasViewController: UIViewController {
     
     var isFirstTime:Bool = true
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dailyIdeasView.setup(viewController: self)
@@ -202,7 +205,31 @@ extension DailyIdeasViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let action = UITableViewRowAction(style: .normal, title: "Save") { (action, indexPath) in
-            // TODO: Save to Core Data / Cloud Kit
+            
+            let context = self.appDelegate.persistentContainer.viewContext
+            context.automaticallyMergesChangesFromParent = true
+            context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+            
+            let pl = Palettes(context: context)
+            
+            do{
+                pl.paletteName = self.paletteArr[indexPath.section].title
+                pl.color1 = self.paletteArr[indexPath.section].color1 as NSObject
+                pl.color2 = self.paletteArr[indexPath.section].color2 as NSObject
+                pl.color3 = self.paletteArr[indexPath.section].color3 as NSObject
+                pl.color4 = self.paletteArr[indexPath.section].color4 as NSObject
+                pl.color5 = self.paletteArr[indexPath.section].color5 as NSObject
+                
+                context.insert(pl)
+                try context.save()
+                print("Save Success")
+                
+                // TODO: Add Alert on save success
+                
+            } catch {
+                print(error.localizedDescription)
+            }
+            
         }
         
         action.backgroundColor = .systemBlue
