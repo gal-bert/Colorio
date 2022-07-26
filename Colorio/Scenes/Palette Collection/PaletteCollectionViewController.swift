@@ -105,14 +105,14 @@ extension PaletteCollectionViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // TODO: Segue to collection detail
-//        performSegue(withIdentifier: "toDetailIdeasSegue", sender: self)
+        // TODO: Create collection detail view
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let context = self.appDelegate.persistentContainer.viewContext
             context.automaticallyMergesChangesFromParent = true
-            context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+//            context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
             
             context.delete(self.cloudArr[indexPath.section])
             try! context.save()
