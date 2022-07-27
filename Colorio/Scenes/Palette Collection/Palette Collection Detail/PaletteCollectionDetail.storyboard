@@ -20,16 +20,24 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="KXw-a0-fPu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gxl-sz-SBK" secondAttribute="trailing" id="B2Q-Bj-R4F"/>
+                            <constraint firstItem="KXw-a0-fPu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="I0J-2a-lmx"/>
                             <constraint firstItem="gxl-sz-SBK" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="S6O-Cx-50b"/>
+                            <constraint firstAttribute="bottom" secondItem="KXw-a0-fPu" secondAttribute="bottom" id="WZV-Jq-Ie5"/>
                             <constraint firstItem="gxl-sz-SBK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="mbf-GU-KqJ"/>
+                            <constraint firstItem="KXw-a0-fPu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="pgI-5h-LGb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="gxl-sz-SBK" secondAttribute="bottom" id="u2v-dE-Sf1"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="KXw-a0-fPu" secondAttribute="trailing" id="xdI-nd-eqY"/>
                         </constraints>
                         <connections>
+                            <outlet property="activityIndicator" destination="KXw-a0-fPu" id="31e-bQ-b0y"/>
                             <outlet property="ellipsisButtonOutlet" destination="nWH-XP-n7e" id="iTo-yv-wCi"/>
                             <outlet property="tableView" destination="gxl-sz-SBK" id="pFu-mo-FLU"/>
                         </connections>

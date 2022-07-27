@@ -20,9 +20,12 @@ class PaletteCollectionDetailViewController: UIViewController {
     
     var colorArr = [[Int]]()
     
+    var nameArr = [String]()
+    var hexArr = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        paletteCollectionDetailView.setup(viewController: self)
+        self.paletteCollectionDetailView.setup(viewController: self)
         
         color1 = sentPalletes?.color1 as! [Int]
         color2 = sentPalletes?.color2 as! [Int]
@@ -38,15 +41,60 @@ class PaletteCollectionDetailViewController: UIViewController {
         
         print("\n===> \(colorArr)\n")
         
+        fetchAPI(index: 0)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setupNavigationBar()
+        paletteCollectionDetailView.activityIndicator.startAnimating()
     }
     
     func setupNavigationBar() {
         self.title = sentPalletes?.paletteName
         navigationItem.largeTitleDisplayMode = .never
+    }
+    
+    func fetchAPI(index: Int) {
+        
+        guard index < 5 else {
+            DispatchQueue.main.async {
+                self.paletteCollectionDetailView.activityIndicator.stopAnimating()
+            }
+            return
+        }
+        
+        let string = "\(colorArr[index])"
+            .replacingOccurrences(of: "[", with: "(")
+            .replacingOccurrences(of: "]", with: ")")
+        
+        let url = URL(string: "\(Constants.THECOLORAPI_RGB_URL)\(string)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        print("URL \(url)")
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            let json = try! JSONSerialization.jsonObject(with: data!) as! [String:Any]
+            
+            let name = json["name"] as! [String:Any]
+            let nameValue = name["value"] as! String
+            
+            let hex = json["hex"] as! [String:Any]
+            let hexValue = hex["value"] as! String
+            
+            
+            DispatchQueue.main.sync {
+                self.nameArr.append(nameValue)
+                self.hexArr.append(hexValue)
+                self.paletteCollectionDetailView.tableView.insertSections(IndexSet(integer: index), with: .fade)
+            }
+            
+            self.fetchAPI(index: index+1)
+                        
+        }.resume()
+        
+        
     }
 
 }
@@ -71,7 +119,8 @@ extension PaletteCollectionDetailViewController: UITableViewDataSource, UITableV
             alpha: 1.0
         )
         
-        
+        cell.colorName.text = nameArr[indexPath.section]
+        cell.colorHex.text = hexArr[indexPath.section]
         
         return cell
     }
@@ -81,11 +130,17 @@ extension PaletteCollectionDetailViewController: UITableViewDataSource, UITableV
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return colorArr.count
+        return nameArr.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 20
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        UIPasteboard.general.string = hexArr[indexPath.section]
+        showToast(message: "Hex copied to clipboard", seconds: 1)
     }
     
 }
