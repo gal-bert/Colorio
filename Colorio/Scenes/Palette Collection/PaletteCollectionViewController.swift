@@ -103,7 +103,6 @@ extension PaletteCollectionViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // TODO: Check if empty
         return cloudArr.count
     }
     

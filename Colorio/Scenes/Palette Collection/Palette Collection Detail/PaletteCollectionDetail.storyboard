@@ -43,7 +43,7 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="XrQ-2C-X8j">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="nWH-XP-n7e">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="trash" catalog="system" id="nWH-XP-n7e">
                             <connections>
                                 <action selector="ellipsisButton:" destination="5EZ-qb-Rvc" id="9xQ-IN-7uA"/>
                             </connections>
@@ -51,15 +51,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="paletteCollectionDetailView" destination="5EZ-qb-Rvc" id="A7V-mN-EAk"/>
+                        <segue destination="xlh-tS-Qpg" kind="unwind" identifier="unwindToPaletteFromDetail" unwindAction="unwindToPalette:" id="a3X-J1-q4a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="xlh-tS-Qpg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="92.753623188405811" y="39.508928571428569"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

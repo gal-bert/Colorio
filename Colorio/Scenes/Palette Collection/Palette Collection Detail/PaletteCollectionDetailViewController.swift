@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import CoreData
 
 class PaletteCollectionDetailViewController: UIViewController {
     
     @IBOutlet var paletteCollectionDetailView: PaletteCollectionDetailView!
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     var sentPalletes:Palettes?
     var color1:[Int]?
     var color2:[Int]?
@@ -38,9 +40,7 @@ class PaletteCollectionDetailViewController: UIViewController {
         colorArr.append(color3!)
         colorArr.append(color4!)
         colorArr.append(color5!)
-        
-        print("\n===> \(colorArr)\n")
-        
+                
         fetchAPI(index: 0)
         
     }
@@ -98,9 +98,31 @@ class PaletteCollectionDetailViewController: UIViewController {
 }
 
 extension PaletteCollectionDetailViewController: PaletteCollectionDetailDelegate {
-    func pushPopOver() {
-        print("Button clicked")
-        // TODO: Push Popover button
+    func deletePalette() {
+        let alert = UIAlertController(title: "Delete Palette?", message: "Deleted palette can't be recovered", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil)
+        )
+        
+        alert.addAction(UIAlertAction(
+            title: "Delete",
+            style: .destructive,
+            handler: { _ in
+                let context = self.appDelegate.persistentContainer.viewContext
+                context.automaticallyMergesChangesFromParent = true
+                context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+                
+                context.delete(self.sentPalletes!)
+                try! context.save()
+                self.performSegue(withIdentifier: "unwindToPaletteFromDetail", sender: self)
+            })
+        )
+        
+        present(alert, animated: true)
+        
     }
 }
 

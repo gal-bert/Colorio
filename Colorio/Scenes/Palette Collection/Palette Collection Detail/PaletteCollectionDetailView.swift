@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PaletteCollectionDetailDelegate {
-    func pushPopOver()
+    func deletePalette()
 }
 
 class PaletteCollectionDetailView: UIView {
@@ -17,15 +17,16 @@ class PaletteCollectionDetailView: UIView {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
-    var delegatexx: PaletteCollectionDetailDelegate!
+    var delegate: PaletteCollectionDetailDelegate!
     
     func setup(viewController: PaletteCollectionDetailViewController) {
+        delegate = viewController
         tableView.delegate = viewController
         tableView.dataSource = viewController
         tableView.register(UINib(nibName: "SingleColorTableViewCell", bundle: nil), forCellReuseIdentifier: "singleColorCell")
     }
     
     @IBAction func ellipsisButton(_ sender: Any) {
-        delegatexx.pushPopOver()
+        delegate.deletePalette()
     }
 }
