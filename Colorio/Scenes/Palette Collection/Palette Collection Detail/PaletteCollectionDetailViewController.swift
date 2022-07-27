@@ -93,8 +93,6 @@ class PaletteCollectionDetailViewController: UIViewController {
             self.fetchAPI(index: index+1)
                         
         }.resume()
-        
-        
     }
 
 }

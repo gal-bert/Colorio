@@ -138,6 +138,7 @@
                             <outlet property="colorHexValue" destination="4JR-Fh-nba" id="fr1-ni-OuA"/>
                             <outlet property="colorName" destination="Jgr-hT-kYg" id="mon-BA-yPX"/>
                             <outlet property="colorRgbValue" destination="0P4-MA-njm" id="wUb-UV-bFt"/>
+                            <outlet property="heartButtonOutlet" destination="ZZV-nF-cNP" id="oRY-BA-bAU"/>
                             <outlet property="reloadPaletteButtonOutlet" destination="S7d-Da-USL" id="VC0-2N-KRb"/>
                             <outlet property="singleCard" destination="dpj-m0-yBo" id="3lS-ib-mXy"/>
                             <outlet property="tableView" destination="sjJ-do-S00" id="ige-yt-0zQ"/>

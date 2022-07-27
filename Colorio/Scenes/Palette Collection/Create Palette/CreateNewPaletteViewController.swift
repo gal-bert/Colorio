@@ -44,6 +44,7 @@ class CreateNewPaletteViewController: UIViewController {
         createNewPaletteView.tableView.reloadData()
         createNewPaletteView.activityIndicator.startAnimating()
         createNewPaletteView.reloadPaletteButtonOutlet.isEnabled = false
+        createNewPaletteView.heartButtonOutlet.isEnabled = false
     }
     
     func getSelectedColorInfo(rgbString:String) -> Void {
@@ -91,9 +92,7 @@ class CreateNewPaletteViewController: UIViewController {
             "input": [[red, green, blue]],
             "model": "default"
         ])
-        
-//        print("\n\n\( String(decoding: request.httpBody!, as: UTF8.self) )\n\n")
-        
+                
         URLSession.shared.dataTask(with: request) { data, response, error in
             
             let json = try! JSONSerialization.jsonObject(with: data!) as! [String:Any]
@@ -116,6 +115,7 @@ class CreateNewPaletteViewController: UIViewController {
             DispatchQueue.main.sync {
                 self.createNewPaletteView.activityIndicator.stopAnimating()
                 self.createNewPaletteView.reloadPaletteButtonOutlet.isEnabled = true
+                self.createNewPaletteView.heartButtonOutlet.isEnabled = true
             }
             return
         }
@@ -173,14 +173,16 @@ extension CreateNewPaletteViewController: CreateNewPaletteDelegate {
         context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
         
         let palettes = Palettes(context: context)
-        
+        let collection = rgbCollection as NSArray
         do{
 //            palettes.paletteName = palette?.title
-//            palettes.color1 = palette!.color1 as NSObject
-//            palettes.color2 = palette!.color2 as NSObject
-//            palettes.color3 = palette!.color3 as NSObject
-//            palettes.color4 = palette!.color4 as NSObject
-//            palettes.color5 = palette!.color5 as NSObject
+            palettes.paletteName = "American Palette"
+            palettes.color1 = collection[0] as! NSObject
+            palettes.color2 = collection[1] as! NSObject
+            palettes.color3 = collection[2] as! NSObject
+            palettes.color4 = collection[3] as! NSObject
+            palettes.color5 = collection[4] as! NSObject
+            
             context.insert(palettes)
             try context.save()
             print("Save Success")

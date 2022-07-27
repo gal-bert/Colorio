@@ -24,6 +24,7 @@ class CreateNewPaletteView: UIView {
     
     @IBOutlet weak var reloadPaletteButtonOutlet: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var heartButtonOutlet: UIBarButtonItem!
     
     var delegate: CreateNewPaletteDelegate!
     let pickerVC = ColorPickerViewController()
