@@ -153,11 +153,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="createNewPaletteView" destination="5EZ-qb-Rvc" id="oTU-Zt-wVJ"/>
+                        <segue destination="mO8-ga-9A2" kind="unwind" identifier="unwindToPaletteSegue" unwindAction="unwindToPalette:" id="7aI-Ym-UBz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="mO8-ga-9A2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="108" y="45.073891625615765"/>
+            <point key="canvasLocation" x="132" y="44"/>
         </scene>
     </scenes>
     <resources>

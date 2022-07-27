@@ -150,6 +150,30 @@ class CreateNewPaletteViewController: UIViewController {
         
     }
     
+    func saveCoreData(titleToSave:String) {
+        let context = appDelegate.persistentContainer.viewContext
+        context.automaticallyMergesChangesFromParent = true
+        context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+        
+        let palettes = Palettes(context: context)
+        let collection = rgbCollection as NSArray
+        do{
+            
+            palettes.paletteName = titleToSave
+            palettes.color1 = collection[0] as! NSObject
+            palettes.color2 = collection[1] as! NSObject
+            palettes.color3 = collection[2] as! NSObject
+            palettes.color4 = collection[3] as! NSObject
+            palettes.color5 = collection[4] as! NSObject
+            
+            context.insert(palettes)
+            try context.save()
+            print("Save Success")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     
 
 }
@@ -167,29 +191,25 @@ extension CreateNewPaletteViewController: CreateNewPaletteDelegate {
     }
     
     func addToFavorite() {
-        // TODO: Add to core data / cloudkit
-        let context = appDelegate.persistentContainer.viewContext
-        context.automaticallyMergesChangesFromParent = true
-        context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
         
-        let palettes = Palettes(context: context)
-        let collection = rgbCollection as NSArray
-        do{
-//            palettes.paletteName = palette?.title
-            palettes.paletteName = "American Palette"
-            palettes.color1 = collection[0] as! NSObject
-            palettes.color2 = collection[1] as! NSObject
-            palettes.color3 = collection[2] as! NSObject
-            palettes.color4 = collection[3] as! NSObject
-            palettes.color5 = collection[4] as! NSObject
-            
-            context.insert(palettes)
-            try context.save()
-            print("Save Success")
-        } catch {
-            print(error.localizedDescription)
+        let alert = UIAlertController(title: "Add Title", message: "Give your palette a representative name", preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter Title"
         }
+        
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { UIAlertAction in
+            let textField = alert.textFields![0] as UITextField
+            self.saveCoreData(titleToSave:textField.text!)
+            self.performSegue(withIdentifier: "unwindToPaletteSegue", sender: self)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alert, animated: true)
     }
+    
+    
 
 }
 
