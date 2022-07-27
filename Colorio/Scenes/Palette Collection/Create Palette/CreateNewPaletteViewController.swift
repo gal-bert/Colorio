@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CreateNewPaletteViewController: UIViewController {
 
@@ -169,7 +170,7 @@ extension CreateNewPaletteViewController: CreateNewPaletteDelegate {
         // TODO: Add to core data / cloudkit
         let context = appDelegate.persistentContainer.viewContext
         context.automaticallyMergesChangesFromParent = true
-//        context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+        context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
         
         let palettes = Palettes(context: context)
         

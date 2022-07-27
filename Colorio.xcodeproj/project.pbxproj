@@ -40,6 +40,9 @@
 		0CAF2D722887FB080055B80C /* DailyIdeasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D712887FB080055B80C /* DailyIdeasView.swift */; };
 		0CAF2D762887FC5C0055B80C /* PaletteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF2D742887FC5C0055B80C /* PaletteTableViewCell.swift */; };
 		0CAF2D772887FC5C0055B80C /* PaletteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CAF2D752887FC5C0055B80C /* PaletteTableViewCell.xib */; };
+		0CC683FA28916619005A9794 /* PaletteCollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC683F928916619005A9794 /* PaletteCollectionDetailViewController.swift */; };
+		0CC683FC28916639005A9794 /* PaletteCollectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC683FB28916639005A9794 /* PaletteCollectionDetailView.swift */; };
+		0CC683FE2891669A005A9794 /* PaletteCollectionDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC683FD2891669A005A9794 /* PaletteCollectionDetail.storyboard */; };
 		0CEB3ABE288920BB00EC5E7F /* Corner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEB3ABD288920BB00EC5E7F /* Corner.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +102,9 @@
 		0CAF2D712887FB080055B80C /* DailyIdeasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIdeasView.swift; sourceTree = "<group>"; };
 		0CAF2D742887FC5C0055B80C /* PaletteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteTableViewCell.swift; sourceTree = "<group>"; };
 		0CAF2D752887FC5C0055B80C /* PaletteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaletteTableViewCell.xib; sourceTree = "<group>"; };
+		0CC683F928916619005A9794 /* PaletteCollectionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCollectionDetailViewController.swift; sourceTree = "<group>"; };
+		0CC683FB28916639005A9794 /* PaletteCollectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCollectionDetailView.swift; sourceTree = "<group>"; };
+		0CC683FD2891669A005A9794 /* PaletteCollectionDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaletteCollectionDetail.storyboard; sourceTree = "<group>"; };
 		0CEB3ABD288920BB00EC5E7F /* Corner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,6 +206,7 @@
 		0C9BE0BA28893FF000C6B1DA /* Palette Collection */ = {
 			isa = PBXGroup;
 			children = (
+				0CC683F8289165F3005A9794 /* Palette Collection Detail */,
 				0C9D8E4A288AA5500059E976 /* Create Palette */,
 				0C9BE0BB2889401600C6B1DA /* PaletteCollection.storyboard */,
 				0C53FDEF2889429C000E03D1 /* PaletteCollectionViewController.swift */,
@@ -289,6 +296,16 @@
 				0CEB3AC5288933ED00EC5E7F /* Palette Cell */,
 			);
 			path = "Reusable Components";
+			sourceTree = "<group>";
+		};
+		0CC683F8289165F3005A9794 /* Palette Collection Detail */ = {
+			isa = PBXGroup;
+			children = (
+				0CC683F928916619005A9794 /* PaletteCollectionDetailViewController.swift */,
+				0CC683FB28916639005A9794 /* PaletteCollectionDetailView.swift */,
+				0CC683FD2891669A005A9794 /* PaletteCollectionDetail.storyboard */,
+			);
+			path = "Palette Collection Detail";
 			sourceTree = "<group>";
 		};
 		0CEB3AC5288933ED00EC5E7F /* Palette Cell */ = {
@@ -416,6 +433,7 @@
 				0C988EA62889384B00CF06E5 /* SingleColorTableViewCell.xib in Resources */,
 				0C9BE0BC2889401600C6B1DA /* PaletteCollection.storyboard in Resources */,
 				0CAF2D4C2887FA310055B80C /* LaunchScreen.storyboard in Resources */,
+				0CC683FE2891669A005A9794 /* PaletteCollectionDetail.storyboard in Resources */,
 				0C9BE0BE2889408B00C6B1DA /* Main.storyboard in Resources */,
 				0CAF2D492887FA310055B80C /* Assets.xcassets in Resources */,
 				0CAF2D442887FA2E0055B80C /* DailyIdeas.storyboard in Resources */,
@@ -447,9 +465,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C9D8E52288AB58E0059E976 /* UIViewController+Ext.swift in Sources */,
+				0CC683FA28916619005A9794 /* PaletteCollectionDetailViewController.swift in Sources */,
 				0C9D8E4E288AA56D0059E976 /* CreateNewPaletteViewController.swift in Sources */,
 				0CAF2D722887FB080055B80C /* DailyIdeasView.swift in Sources */,
 				0CAF2D412887FA2E0055B80C /* DailyIdeasViewController.swift in Sources */,
+				0CC683FC28916639005A9794 /* PaletteCollectionDetailView.swift in Sources */,
 				0C9D8E50288AB2280059E976 /* CreateNewPaletteView.swift in Sources */,
 				0C53FDF428894BC8000E03D1 /* DailyIdeasDetailViewController.swift in Sources */,
 				0CEB3ABE288920BB00EC5E7F /* Corner.swift in Sources */,

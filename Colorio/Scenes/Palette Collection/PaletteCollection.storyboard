@@ -44,11 +44,22 @@
                     </navigationItem>
                     <connections>
                         <outlet property="paletteCollectionView" destination="5EZ-qb-Rvc" id="pCl-1F-P5n"/>
+                        <segue destination="2aD-xl-2LR" kind="show" identifier="toPaletteCollectionDetailSegue" id="JCt-bq-XoR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="14" y="33"/>
+        </scene>
+        <!--PaletteCollectionDetail-->
+        <scene sceneID="DAo-ja-q1O">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PaletteCollectionDetail" id="2aD-xl-2LR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="oy2-qk-vsq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sm8-Yu-WLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="104"/>
         </scene>
         <!--CreateNewPalette-->
         <scene sceneID="jZU-eW-cFx">
@@ -58,7 +69,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZG-Uu-Ce9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="736" y="33"/>
+            <point key="canvasLocation" x="707" y="-35"/>
         </scene>
     </scenes>
     <resources>

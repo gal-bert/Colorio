@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DailyIdeasViewController: UIViewController {
     
@@ -213,7 +214,7 @@ extension DailyIdeasViewController: UITableViewDelegate, UITableViewDataSource {
             
             let context = self.appDelegate.persistentContainer.viewContext
             context.automaticallyMergesChangesFromParent = true
-//            context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+            context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
             
             let pl = Palettes(context: context)
             

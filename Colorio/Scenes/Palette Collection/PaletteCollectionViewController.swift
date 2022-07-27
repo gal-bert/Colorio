@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class PaletteCollectionViewController: UIViewController {
 
@@ -13,6 +14,7 @@ class PaletteCollectionViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var cloudArr = [Palettes]()
+    var paletteToSend:Palettes?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,7 @@ class PaletteCollectionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         fetchCloudKit()
+        print("\n\n\n\n ==> \(cloudArr.count) \n\n\n\n")
     }
     
     func fetchCloudKit() {
@@ -95,6 +98,7 @@ extension PaletteCollectionViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        // TODO: Check if empty
         return cloudArr.count
     }
     
@@ -104,15 +108,22 @@ extension PaletteCollectionViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        // TODO: Segue to collection detail
-        // TODO: Create collection detail view
+        paletteToSend = cloudArr[indexPath.section]
+        performSegue(withIdentifier: "toPaletteCollectionDetailSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPaletteCollectionDetailSegue" {
+            let dest = segue.destination as! PaletteCollectionDetailViewController
+            dest.sentPalletes = paletteToSend
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let context = self.appDelegate.persistentContainer.viewContext
             context.automaticallyMergesChangesFromParent = true
-//            context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+            context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
             
             context.delete(self.cloudArr[indexPath.section])
             try! context.save()
